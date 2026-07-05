@@ -1,0 +1,204 @@
+{
+    "common": {
+      "nav": {
+        "logo": "CraveMap",
+        "report": "Report",
+        "mypage": "My Page",
+        "login": "Login",
+        "logout": "Logout"
+      },
+      "button": {
+        "confirm": "Confirm",
+        "cancel": "Cancel",
+        "close": "Close",
+        "retry": "Retry",
+        "submit": "Submit",
+        "delete": "Delete",
+        "save": "Save",
+        "login": "Login"
+      }
+    },
+    "map": {
+      "loading": "Loading stores...",
+      "loadError": "Failed to load stores. Please try again later.",
+      "mapLoadError": "Failed to load map. Please refresh.",
+      "empty": "No stores registered yet. Be the first to report one!",
+      "filter": {
+        "all": "All",
+        "restaurant": "🍜 Restaurant",
+        "mart": "🛒 Grocery Mart"
+      },
+      "reportLoginRequired": "Login is required to report a store.",
+      "locationPermissionDenied": "Location permission is required. Please allow location access in your browser settings.",
+      "locationNotFound": "Unable to find your current location."
+    },
+    "storeDetail": {
+      "category": {
+        "restaurant": "Restaurant",
+        "mart": "Grocery Mart"
+      },
+      "address": "Address",
+      "noAddress": "No address available.",
+      "photos": "Photos",
+      "noPhotos": "No photos registered.",
+      "reporter": "Reported by",
+      "reportedAt": "Reported on",
+      "direction": "Get Directions",
+      "loadError": "Failed to load store information."
+    },
+    "report": {
+      "title": "Report a Store",
+      "field": {
+        "name": "Store Name",
+        "namePlaceholder": "Enter store name (max 50 characters)",
+        "country": "Country",
+        "countryPlaceholder": "Select a country",
+        "category": "Category",
+        "location": "Location",
+        "addressSearch": "Search Address",
+        "searchBtn": "Search",
+        "locationHint": "Click the map or search an address to set the location.",
+        "memo": "Memo",
+        "memoPlaceholder": "Additional info (optional, max 200 characters)",
+        "photos": "Photos"
+      },
+      "photo": {
+        "upload": "Add Photo",
+        "limit": "You can upload up to 3 photos."
+      },
+      "charCount": "{current}/{max}",
+      "submit": "Submit Report",
+      "submitSuccess": "Thanks for reporting! It's now on the map.",
+      "error": {
+        "nameRequired": "Please enter the store name.",
+        "countryRequired": "Please select a country.",
+        "categoryRequired": "Please select a category.",
+        "locationRequired": "Please set a location.",
+        "photosRequired": "Please upload at least one photo.",
+        "photoSize": "Photo is too large. Please upload photos under 1MB.",
+        "photoFormat": "Unsupported file format.",
+        "submitFailed": "Failed to submit report. Please try again."
+      }
+    },
+    "community": {
+      "title": "Comments",
+      "empty": "No comments yet. Be the first to leave one!",
+      "loginRequired": "Login is required to write a comment.",
+      "input": {
+        "placeholder": "Share your thoughts about this place (max 200 characters)",
+        "submit": "Post",
+        "charCount": "{current}/200"
+      },
+      "delete": {
+        "confirmMessage": "Are you sure you want to delete this comment?",
+        "confirmButton": "Delete",
+        "error": "Failed to delete comment. Please try again."
+      },
+      "error": {
+        "loadFailed": "Failed to load comments. Please try again later.",
+        "submitFailed": "Failed to post comment. Please try again."
+      }
+    },
+    "auth": {
+      "login": {
+        "title": "Sign In",
+        "subtitle": "Find the taste of home nearby",
+        "googleBtn": "Continue with Google",
+        "orDivider": "or",
+        "emailPlaceholder": "email@example.com",
+        "passwordPlaceholder": "Password",
+        "submitBtn": "Sign in with Email",
+        "signupLink": "Sign Up",
+        "forgotLink": "Forgot Password",
+        "error": {
+          "invalid": "Please check your email or password.",
+          "emailNotVerified": "Please verify your email.",
+          "rateLimited": "Please try again later.",
+          "googleUnavailable": "Google login is unavailable. Please use email login."
+        },
+        "resendEmailBtn": "Resend verification email",
+        "resendSuccess": "Verification email has been resent."
+      },
+      "signup": {
+        "title": "Sign Up",
+        "emailLabel": "Email",
+        "passwordLabel": "Password",
+        "confirmLabel": "Confirm Password",
+        "nicknameLabel": "Nickname",
+        "countryLabel": "Country",
+        "emailPlaceholder": "email@example.com",
+        "passwordPlaceholder": "Password",
+        "passwordHint": "At least 8 characters with letters and numbers",
+        "confirmPlaceholder": "Re-enter password",
+        "nicknamePlaceholder": "Up to 20 characters",
+        "countryPlaceholder": "Select",
+        "submitBtn": "Sign Up",
+        "loginPrompt": "Already have an account?",
+        "loginLink": "Sign In",
+        "error": {
+          "emailInvalid": "Invalid email format.",
+          "emailDuplicate": "This email is already in use.",
+          "passwordShort": "Password must be at least 8 characters.",
+          "passwordPattern": "Combine letters and numbers.",
+          "passwordMismatch": "Passwords do not match.",
+          "nicknameRequired": "Please enter a nickname.",
+          "countryRequired": "Please select a country.",
+          "failed": "Sign up failed. Please try again."
+        },
+        "verifyTitle": "Please verify your email",
+        "verifyMessage": "Please verify your email to complete registration.",
+        "resendBtn": "Resend verification email",
+        "resendCooldown": "Resend available in {seconds}s",
+        "resendSuccess": "Verification email resent."
+      },
+      "onboarding": {
+        "title": "Find the taste of home\non the map",
+        "subtitle": "Record and share foreign restaurants\nand grocery stores with neighbors.",
+        "nicknameLabel": "Nickname",
+        "countryLabel": "Country",
+        "nicknamePlaceholder": "Up to 20 characters",
+        "countryPlaceholder": "Select a country",
+        "submitBtn": "Get Started",
+        "error": {
+          "nicknameRequired": "Please enter a nickname.",
+          "countryRequired": "Please select a country.",
+          "failed": "Failed to save profile. Please try again."
+        }
+      },
+      "forgotPassword": {
+        "title": "Reset Password",
+        "description": "Enter your email address and we'll\nsend you a link to reset your password.",
+        "emailLabel": "Email",
+        "emailPlaceholder": "email@example.com",
+        "submitBtn": "Send Reset Link",
+        "successMessage": "Password reset link has been sent to your email."
+      },
+      "resetPassword": {
+        "title": "Set New Password",
+        "description": "Enter your new password below.",
+        "newPasswordLabel": "New Password",
+        "newPasswordPlaceholder": "At least 8 characters with letters and numbers",
+        "confirmLabel": "Confirm Password",
+        "confirmPlaceholder": "Re-enter new password",
+        "submitBtn": "Change Password",
+        "successTitle": "Password changed!",
+        "successMessage": "Please sign in with your new password.",
+        "loginBtn": "Go to Login",
+        "error": {
+          "passwordShort": "Password must be at least 8 characters.",
+          "passwordPattern": "Combine letters and numbers.",
+          "passwordMismatch": "Passwords do not match.",
+          "failed": "Failed to change password. Please try again.",
+          "invalidLink": "Invalid link. Please request a new password reset."
+        }
+      },
+      "sessionExpired": "Your session has expired. Please log in again."
+    },
+    "mypage": {
+    "title": "My Page",
+    "nicknameLabel": "Nickname",
+    "countryLabel": "Country",
+    "logoutBtn": "Logout",
+    "unknown": "Unknown"
+    }
+}

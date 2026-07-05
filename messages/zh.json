@@ -1,0 +1,204 @@
+{
+    "common": {
+      "nav": {
+        "logo": "CraveMap",
+        "report": "提交信息",
+        "mypage": "我的页面",
+        "login": "登录",
+        "logout": "退出登录"
+      },
+      "button": {
+        "confirm": "确认",
+        "cancel": "取消",
+        "close": "关闭",
+        "retry": "重试",
+        "submit": "提交",
+        "delete": "删除",
+        "save": "保存",
+        "login": "去登录"
+      }
+    },
+    "map": {
+      "loading": "正在加载店铺信息...",
+      "loadError": "无法加载店铺信息，请稍后再试。",
+      "mapLoadError": "地图加载失败，请刷新页面。",
+      "empty": "还没有注册的店铺，来第一个举报吧！",
+      "filter": {
+        "all": "全部",
+        "restaurant": "🍜 餐厅",
+        "mart": "🛒 食材超市"
+      },
+      "reportLoginRequired": "举报店铺需要登录。",
+      "locationPermissionDenied": "需要位置权限。请在浏览器设置中允许位置访问。",
+      "locationNotFound": "无法找到您的当前位置。"
+    },
+    "storeDetail": {
+      "category": {
+        "restaurant": "餐厅",
+        "mart": "食材超市"
+      },
+      "address": "地址",
+      "noAddress": "暂无地址信息。",
+      "photos": "照片",
+      "noPhotos": "暂无照片。",
+      "reporter": "举报者",
+      "reportedAt": "举报日期",
+      "direction": "获取路线",
+      "loadError": "无法加载店铺信息。"
+    },
+    "report": {
+      "title": "举报店铺",
+      "field": {
+        "name": "店铺名称",
+        "namePlaceholder": "请输入店铺名称（最多50字）",
+        "country": "国家",
+        "countryPlaceholder": "请选择国家",
+        "category": "类别",
+        "location": "位置",
+        "addressSearch": "搜索地址",
+        "searchBtn": "搜索",
+        "locationHint": "点击地图或搜索地址来设置位置。",
+        "memo": "备注",
+        "memoPlaceholder": "附加信息（选填，最多200字）",
+        "photos": "照片"
+      },
+      "photo": {
+        "upload": "添加照片",
+        "limit": "最多可上传3张照片。"
+      },
+      "charCount": "{current}/{max}字",
+      "submit": "提交举报",
+      "submitSuccess": "感谢您的举报！已显示在地图上。",
+      "error": {
+        "nameRequired": "请输入店铺名称。",
+        "countryRequired": "请选择国家。",
+        "categoryRequired": "请选择类别。",
+        "locationRequired": "请设置位置。",
+        "photosRequired": "请至少上传一张照片。",
+        "photoSize": "照片太大，请上传1MB以下的照片。",
+        "photoFormat": "不支持的文件格式。",
+        "submitFailed": "提交失败，请重试。"
+      }
+    },
+    "community": {
+      "title": "评论",
+      "empty": "还没有评论，来第一个留言吧！",
+      "loginRequired": "发表评论需要登录。",
+      "input": {
+        "placeholder": "分享您对这家店的看法（最多200字）",
+        "submit": "发布",
+        "charCount": "{current}/200"
+      },
+      "delete": {
+        "confirmMessage": "确定要删除这条评论吗？",
+        "confirmButton": "删除",
+        "error": "删除失败，请重试。"
+      },
+      "error": {
+        "loadFailed": "无法加载评论，请稍后再试。",
+        "submitFailed": "发表评论失败，请重试。"
+      }
+    },
+    "auth": {
+      "login": {
+        "title": "登录",
+        "subtitle": "在附近找到家乡的味道",
+        "googleBtn": "使用 Google 继续",
+        "orDivider": "或",
+        "emailPlaceholder": "email@example.com",
+        "passwordPlaceholder": "密码",
+        "submitBtn": "邮箱登录",
+        "signupLink": "注册",
+        "forgotLink": "忘记密码",
+        "error": {
+          "invalid": "请检查您的邮箱或密码。",
+          "emailNotVerified": "请验证您的邮箱。",
+          "rateLimited": "请稍后再试。",
+          "googleUnavailable": "无法使用 Google 登录，请使用邮箱登录。"
+        },
+        "resendEmailBtn": "重新发送验证邮件",
+        "resendSuccess": "已重新发送验证邮件。"
+      },
+      "signup": {
+        "title": "注册",
+        "emailLabel": "邮箱",
+        "passwordLabel": "密码",
+        "confirmLabel": "确认密码",
+        "nicknameLabel": "昵称",
+        "countryLabel": "国家",
+        "emailPlaceholder": "email@example.com",
+        "passwordPlaceholder": "密码",
+        "passwordHint": "至少8个字符，字母+数字组合",
+        "confirmPlaceholder": "重新输入密码",
+        "nicknamePlaceholder": "最多20个字符",
+        "countryPlaceholder": "请选择",
+        "submitBtn": "注册",
+        "loginPrompt": "已有账号？",
+        "loginLink": "登录",
+        "error": {
+          "emailInvalid": "邮箱格式不正确。",
+          "emailDuplicate": "该邮箱已被使用。",
+          "passwordShort": "密码至少需要8个字符。",
+          "passwordPattern": "请组合字母和数字。",
+          "passwordMismatch": "密码不一致。",
+          "nicknameRequired": "请输入昵称。",
+          "countryRequired": "请选择国家。",
+          "failed": "注册失败，请重试。"
+        },
+        "verifyTitle": "请验证您的邮箱",
+        "verifyMessage": "请验证邮箱以完成注册。",
+        "resendBtn": "重新发送验证邮件",
+        "resendCooldown": "{seconds}秒后可重新发送",
+        "resendSuccess": "已重新发送验证邮件。"
+      },
+      "onboarding": {
+        "title": "在地图上\n找到家乡的味道",
+        "subtitle": "与邻居一起记录和分享\n外国餐厅和食材超市。",
+        "nicknameLabel": "昵称",
+        "countryLabel": "国家",
+        "nicknamePlaceholder": "最多20个字符",
+        "countryPlaceholder": "请选择国家",
+        "submitBtn": "开始使用",
+        "error": {
+          "nicknameRequired": "请输入昵称。",
+          "countryRequired": "请选择国家。",
+          "failed": "保存资料失败，请重试。"
+        }
+      },
+      "forgotPassword": {
+        "title": "重置密码",
+        "description": "输入您的邮箱地址，\n我们将发送重置链接。",
+        "emailLabel": "邮箱",
+        "emailPlaceholder": "email@example.com",
+        "submitBtn": "发送重置链接",
+        "successMessage": "密码重置链接已发送到您的邮箱。"
+      },
+      "resetPassword": {
+        "title": "设置新密码",
+        "description": "请输入您的新密码。",
+        "newPasswordLabel": "新密码",
+        "newPasswordPlaceholder": "至少8个字符，字母+数字组合",
+        "confirmLabel": "确认密码",
+        "confirmPlaceholder": "请重新输入新密码",
+        "submitBtn": "更改密码",
+        "successTitle": "密码已更改！",
+        "successMessage": "请使用新密码登录。",
+        "loginBtn": "前往登录",
+        "error": {
+          "passwordShort": "密码至少需要8个字符。",
+          "passwordPattern": "请组合字母和数字。",
+          "passwordMismatch": "密码不一致。",
+          "failed": "更改密码失败，请重试。",
+          "invalidLink": "链接无效，请重新申请密码重置。"
+        }
+      },
+      "sessionExpired": "登录已过期，请重新登录。"
+    },
+    "mypage": {
+    "title": "我的页面",
+    "nicknameLabel": "昵称",
+    "countryLabel": "国家",
+    "logoutBtn": "退出登录",
+    "unknown": "未知"
+    }
+}

@@ -1,0 +1,204 @@
+{
+    "common": {
+      "nav": {
+        "logo": "CraveMap",
+        "report": "Báo cáo",
+        "mypage": "Trang của tôi",
+        "login": "Đăng nhập",
+        "logout": "Đăng xuất"
+      },
+      "button": {
+        "confirm": "Xác nhận",
+        "cancel": "Hủy",
+        "close": "Đóng",
+        "retry": "Thử lại",
+        "submit": "Gửi",
+        "delete": "Xóa",
+        "save": "Lưu",
+        "login": "Đăng nhập"
+      }
+    },
+    "map": {
+      "loading": "Đang tải thông tin cửa hàng...",
+      "loadError": "Không thể tải thông tin cửa hàng. Vui lòng thử lại sau.",
+      "mapLoadError": "Không thể tải bản đồ. Vui lòng làm mới trang.",
+      "empty": "Chưa có cửa hàng nào. Hãy là người đầu tiên báo cáo!",
+      "filter": {
+        "all": "Tất cả",
+        "restaurant": "🍜 Nhà hàng",
+        "mart": "🛒 Siêu thị thực phẩm"
+      },
+      "reportLoginRequired": "Cần đăng nhập để báo cáo cửa hàng.",
+      "locationPermissionDenied": "Cần quyền truy cập vị trí. Vui lòng cho phép trong cài đặt trình duyệt.",
+      "locationNotFound": "Không thể tìm thấy vị trí hiện tại của bạn."
+    },
+    "storeDetail": {
+      "category": {
+        "restaurant": "Nhà hàng",
+        "mart": "Siêu thị thực phẩm"
+      },
+      "address": "Địa chỉ",
+      "noAddress": "Không có thông tin địa chỉ.",
+      "photos": "Ảnh",
+      "noPhotos": "Chưa có ảnh.",
+      "reporter": "Người báo cáo",
+      "reportedAt": "Ngày báo cáo",
+      "direction": "Chỉ đường",
+      "loadError": "Không thể tải thông tin cửa hàng."
+    },
+    "report": {
+      "title": "Báo cáo cửa hàng",
+      "field": {
+        "name": "Tên cửa hàng",
+        "namePlaceholder": "Nhập tên cửa hàng (tối đa 50 ký tự)",
+        "country": "Quốc gia",
+        "countryPlaceholder": "Chọn quốc gia",
+        "category": "Danh mục",
+        "location": "Vị trí",
+        "addressSearch": "Tìm kiếm địa chỉ",
+        "searchBtn": "Tìm kiếm",
+        "locationHint": "Nhấp vào bản đồ hoặc tìm kiếm địa chỉ để đặt vị trí.",
+        "memo": "Ghi chú",
+        "memoPlaceholder": "Thông tin bổ sung (tùy chọn, tối đa 200 ký tự)",
+        "photos": "Ảnh"
+      },
+      "photo": {
+        "upload": "Thêm ảnh",
+        "limit": "Bạn có thể tải lên tối đa 3 ảnh."
+      },
+      "charCount": "{current}/{max}",
+      "submit": "Gửi báo cáo",
+      "submitSuccess": "Cảm ơn bạn đã báo cáo! Đã hiển thị trên bản đồ.",
+      "error": {
+        "nameRequired": "Vui lòng nhập tên cửa hàng.",
+        "countryRequired": "Vui lòng chọn quốc gia.",
+        "categoryRequired": "Vui lòng chọn danh mục.",
+        "locationRequired": "Vui lòng đặt vị trí.",
+        "photosRequired": "Vui lòng tải lên ít nhất một ảnh.",
+        "photoSize": "Ảnh quá lớn. Vui lòng tải ảnh dưới 1MB.",
+        "photoFormat": "Định dạng tệp không được hỗ trợ.",
+        "submitFailed": "Gửi báo cáo thất bại. Vui lòng thử lại."
+      }
+    },
+    "community": {
+      "title": "Bình luận",
+      "empty": "Chưa có bình luận nào. Hãy là người đầu tiên!",
+      "loginRequired": "Cần đăng nhập để viết bình luận.",
+      "input": {
+        "placeholder": "Chia sẻ suy nghĩ của bạn về nơi này (tối đa 200 ký tự)",
+        "submit": "Đăng",
+        "charCount": "{current}/200"
+      },
+      "delete": {
+        "confirmMessage": "Bạn có chắc muốn xóa bình luận này không?",
+        "confirmButton": "Xóa",
+        "error": "Xóa bình luận thất bại. Vui lòng thử lại."
+      },
+      "error": {
+        "loadFailed": "Không thể tải bình luận. Vui lòng thử lại sau.",
+        "submitFailed": "Đăng bình luận thất bại. Vui lòng thử lại."
+      }
+    },
+    "auth": {
+      "login": {
+        "title": "Đăng nhập",
+        "subtitle": "Tìm hương vị quê hương gần đây",
+        "googleBtn": "Tiếp tục với Google",
+        "orDivider": "hoặc",
+        "emailPlaceholder": "email@example.com",
+        "passwordPlaceholder": "Mật khẩu",
+        "submitBtn": "Đăng nhập bằng Email",
+        "signupLink": "Đăng ký",
+        "forgotLink": "Quên mật khẩu",
+        "error": {
+          "invalid": "Vui lòng kiểm tra email hoặc mật khẩu.",
+          "emailNotVerified": "Vui lòng xác minh email của bạn.",
+          "rateLimited": "Vui lòng thử lại sau.",
+          "googleUnavailable": "Không thể đăng nhập bằng Google. Vui lòng dùng email."
+        },
+        "resendEmailBtn": "Gửi lại email xác minh",
+        "resendSuccess": "Đã gửi lại email xác minh."
+      },
+      "signup": {
+        "title": "Đăng ký",
+        "emailLabel": "Email",
+        "passwordLabel": "Mật khẩu",
+        "confirmLabel": "Xác nhận mật khẩu",
+        "nicknameLabel": "Biệt danh",
+        "countryLabel": "Quốc gia",
+        "emailPlaceholder": "email@example.com",
+        "passwordPlaceholder": "Mật khẩu",
+        "passwordHint": "Tối thiểu 8 ký tự, kết hợp chữ và số",
+        "confirmPlaceholder": "Nhập lại mật khẩu",
+        "nicknamePlaceholder": "Tối đa 20 ký tự",
+        "countryPlaceholder": "Chọn quốc gia",
+        "submitBtn": "Đăng ký",
+        "loginPrompt": "Đã có tài khoản?",
+        "loginLink": "Đăng nhập",
+        "error": {
+          "emailInvalid": "Định dạng email không hợp lệ.",
+          "emailDuplicate": "Email này đã được sử dụng.",
+          "passwordShort": "Mật khẩu cần ít nhất 8 ký tự.",
+          "passwordPattern": "Kết hợp chữ cái và số.",
+          "passwordMismatch": "Mật khẩu không khớp.",
+          "nicknameRequired": "Vui lòng nhập biệt danh.",
+          "countryRequired": "Vui lòng chọn quốc gia.",
+          "failed": "Đăng ký thất bại. Vui lòng thử lại."
+        },
+        "verifyTitle": "Vui lòng xác minh email",
+        "verifyMessage": "Vui lòng xác minh email để hoàn tất đăng ký.",
+        "resendBtn": "Gửi lại email xác minh",
+        "resendCooldown": "Có thể gửi lại sau {seconds}s",
+        "resendSuccess": "Đã gửi lại email xác minh."
+      },
+      "onboarding": {
+        "title": "Tìm hương vị quê hương\ntrên bản đồ",
+        "subtitle": "Cùng hàng xóm ghi lại và chia sẻ\ncác nhà hàng và siêu thị nước ngoài.",
+        "nicknameLabel": "Biệt danh",
+        "countryLabel": "Quốc gia",
+        "nicknamePlaceholder": "Tối đa 20 ký tự",
+        "countryPlaceholder": "Chọn quốc gia",
+        "submitBtn": "Bắt đầu",
+        "error": {
+          "nicknameRequired": "Vui lòng nhập biệt danh.",
+          "countryRequired": "Vui lòng chọn quốc gia.",
+          "failed": "Lưu hồ sơ thất bại. Vui lòng thử lại."
+        }
+      },
+      "forgotPassword": {
+        "title": "Đặt lại mật khẩu",
+        "description": "Nhập địa chỉ email của bạn và\nchúng tôi sẽ gửi link đặt lại mật khẩu.",
+        "emailLabel": "Email",
+        "emailPlaceholder": "email@example.com",
+        "submitBtn": "Gửi link đặt lại",
+        "successMessage": "Link đặt lại mật khẩu đã được gửi đến email của bạn."
+      },
+      "resetPassword": {
+        "title": "Đặt mật khẩu mới",
+        "description": "Vui lòng nhập mật khẩu mới của bạn.",
+        "newPasswordLabel": "Mật khẩu mới",
+        "newPasswordPlaceholder": "Tối thiểu 8 ký tự, kết hợp chữ và số",
+        "confirmLabel": "Xác nhận mật khẩu",
+        "confirmPlaceholder": "Nhập lại mật khẩu mới",
+        "submitBtn": "Đổi mật khẩu",
+        "successTitle": "Mật khẩu đã được thay đổi!",
+        "successMessage": "Vui lòng đăng nhập bằng mật khẩu mới.",
+        "loginBtn": "Đến trang đăng nhập",
+        "error": {
+          "passwordShort": "Mật khẩu cần ít nhất 8 ký tự.",
+          "passwordPattern": "Kết hợp chữ cái và số.",
+          "passwordMismatch": "Mật khẩu không khớp.",
+          "failed": "Đổi mật khẩu thất bại. Vui lòng thử lại.",
+          "invalidLink": "Link không hợp lệ. Vui lòng yêu cầu đặt lại mật khẩu mới."
+        }
+      },
+      "sessionExpired": "Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại."
+    },
+    "mypage": {
+    "title": "Trang của tôi",
+    "nicknameLabel": "Biệt danh",
+    "countryLabel": "Quốc gia",
+    "logoutBtn": "Đăng xuất",
+    "unknown": "Không rõ"
+    }
+}

@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #E8342A;
+  --color-primary-light: #FDE8E7;
+  --color-cm-border: #E5E5E5;
+  --color-cm-divider: #F0F0F0;
+  --color-cm-surface: #F5F5F5;
+  --color-cm-text: #1A1A1A;
+  --color-cm-muted: #999;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #1A1A1A;
+  background: #fff;
+}
+
+/* 스크롤바 숨김 유틸 */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}

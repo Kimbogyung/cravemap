@@ -1,0 +1,204 @@
+{
+    "common": {
+      "nav": {
+        "logo": "CraveMap",
+        "report": "情報提供",
+        "mypage": "マイページ",
+        "login": "ログイン",
+        "logout": "ログアウト"
+      },
+      "button": {
+        "confirm": "確認",
+        "cancel": "キャンセル",
+        "close": "閉じる",
+        "retry": "再試行",
+        "submit": "送信",
+        "delete": "削除",
+        "save": "保存",
+        "login": "ログインする"
+      }
+    },
+    "map": {
+      "loading": "店舗情報を読み込み中...",
+      "loadError": "店舗情報を読み込めませんでした。後でもう一度お試しください。",
+      "mapLoadError": "地図を読み込めませんでした。ページを更新してください。",
+      "empty": "まだ登録された店舗がありません。最初に情報提供してみましょう！",
+      "filter": {
+        "all": "すべて",
+        "restaurant": "🍜 レストラン",
+        "mart": "🛒 食材スーパー"
+      },
+      "reportLoginRequired": "情報提供にはログインが必要です。",
+      "locationPermissionDenied": "位置情報の許可が必要です。ブラウザの設定で位置情報を許可してください。",
+      "locationNotFound": "現在地を取得できませんでした。"
+    },
+    "storeDetail": {
+      "category": {
+        "restaurant": "レストラン",
+        "mart": "食材スーパー"
+      },
+      "address": "住所",
+      "noAddress": "住所情報がありません。",
+      "photos": "写真",
+      "noPhotos": "登録された写真がありません。",
+      "reporter": "提供者",
+      "reportedAt": "提供日",
+      "direction": "ルートを調べる",
+      "loadError": "店舗情報を読み込めませんでした。"
+    },
+    "report": {
+      "title": "店舗を提供する",
+      "field": {
+        "name": "店舗名",
+        "namePlaceholder": "店舗名を入力してください（最大50文字）",
+        "country": "国",
+        "countryPlaceholder": "国を選択してください",
+        "category": "カテゴリー",
+        "location": "場所",
+        "addressSearch": "住所検索",
+        "searchBtn": "検索",
+        "locationHint": "地図をクリックするか住所を検索して場所を設定してください。",
+        "memo": "メモ",
+        "memoPlaceholder": "追加情報を入力してください（任意、最大200文字）",
+        "photos": "写真"
+      },
+      "photo": {
+        "upload": "写真を追加",
+        "limit": "最大3枚までアップロードできます。"
+      },
+      "charCount": "{current}/{max}文字",
+      "submit": "情報を提供する",
+      "submitSuccess": "ご提供ありがとうございます！地図に表示されました。",
+      "error": {
+        "nameRequired": "店舗名を入力してください。",
+        "countryRequired": "国を選択してください。",
+        "categoryRequired": "カテゴリーを選択してください。",
+        "locationRequired": "場所を設定してください。",
+        "photosRequired": "写真を1枚以上アップロードしてください。",
+        "photoSize": "写真のサイズが大きすぎます。1MB以下の写真をアップロードしてください。",
+        "photoFormat": "サポートされていないファイル形式です。",
+        "submitFailed": "提供に失敗しました。もう一度お試しください。"
+      }
+    },
+    "community": {
+      "title": "コメント",
+      "empty": "まだコメントがありません。最初にコメントを残しましょう！",
+      "loginRequired": "コメントを書くにはログインが必要です。",
+      "input": {
+        "placeholder": "この店舗についての感想を書いてください（最大200文字）",
+        "submit": "投稿",
+        "charCount": "{current}/200"
+      },
+      "delete": {
+        "confirmMessage": "このコメントを削除しますか？",
+        "confirmButton": "削除する",
+        "error": "コメントの削除に失敗しました。もう一度お試しください。"
+      },
+      "error": {
+        "loadFailed": "コメントを読み込めませんでした。後でもう一度お試しください。",
+        "submitFailed": "コメントの投稿に失敗しました。もう一度お試しください。"
+      }
+    },
+    "auth": {
+      "login": {
+        "title": "ログイン",
+        "subtitle": "近くで故郷の味を見つけよう",
+        "googleBtn": "Googleで続ける",
+        "orDivider": "または",
+        "emailPlaceholder": "email@example.com",
+        "passwordPlaceholder": "パスワード",
+        "submitBtn": "メールでログイン",
+        "signupLink": "新規登録",
+        "forgotLink": "パスワードを忘れた",
+        "error": {
+          "invalid": "メールまたはパスワードを確認してください。",
+          "emailNotVerified": "メールを認証してください。",
+          "rateLimited": "しばらくしてから再試行してください。",
+          "googleUnavailable": "Googleログインが利用できません。メールでログインしてください。"
+        },
+        "resendEmailBtn": "認証メールを再送",
+        "resendSuccess": "認証メールを再送しました。"
+      },
+      "signup": {
+        "title": "新規登録",
+        "emailLabel": "メールアドレス",
+        "passwordLabel": "パスワード",
+        "confirmLabel": "パスワード確認",
+        "nicknameLabel": "ニックネーム",
+        "countryLabel": "国",
+        "emailPlaceholder": "email@example.com",
+        "passwordPlaceholder": "パスワード",
+        "passwordHint": "8文字以上、英字と数字の組み合わせ",
+        "confirmPlaceholder": "パスワードを再入力",
+        "nicknamePlaceholder": "最大20文字",
+        "countryPlaceholder": "選択してください",
+        "submitBtn": "登録する",
+        "loginPrompt": "すでにアカウントをお持ちですか？",
+        "loginLink": "ログイン",
+        "error": {
+          "emailInvalid": "メール形式が正しくありません。",
+          "emailDuplicate": "このメールはすでに使用されています。",
+          "passwordShort": "パスワードは8文字以上必要です。",
+          "passwordPattern": "英字と数字を組み合わせてください。",
+          "passwordMismatch": "パスワードが一致しません。",
+          "nicknameRequired": "ニックネームを入力してください。",
+          "countryRequired": "国を選択してください。",
+          "failed": "登録に失敗しました。もう一度お試しください。"
+        },
+        "verifyTitle": "メールを認証してください",
+        "verifyMessage": "登録を完了するためにメールを認証してください。",
+        "resendBtn": "認証メールを再送",
+        "resendCooldown": "{seconds}秒後に再送可能",
+        "resendSuccess": "認証メールを再送しました。"
+      },
+      "onboarding": {
+        "title": "故郷の味を\n地図で見つけよう",
+        "subtitle": "近くの外国レストランや食材スーパーを\n近所の人と記録・共有しましょう。",
+        "nicknameLabel": "ニックネーム",
+        "countryLabel": "国",
+        "nicknamePlaceholder": "最大20文字",
+        "countryPlaceholder": "国を選択してください",
+        "submitBtn": "はじめる",
+        "error": {
+          "nicknameRequired": "ニックネームを入力してください。",
+          "countryRequired": "国を選択してください。",
+          "failed": "プロフィールの保存に失敗しました。もう一度お試しください。"
+        }
+      },
+      "forgotPassword": {
+        "title": "パスワードリセット",
+        "description": "登録済みのメールアドレスを入力すると\nパスワードリセットリンクをお送りします。",
+        "emailLabel": "メールアドレス",
+        "emailPlaceholder": "email@example.com",
+        "submitBtn": "リセットリンクを送る",
+        "successMessage": "パスワードリセットリンクをメールにお送りしました。"
+      },
+      "resetPassword": {
+        "title": "新しいパスワードを設定",
+        "description": "新しいパスワードを入力してください。",
+        "newPasswordLabel": "新しいパスワード",
+        "newPasswordPlaceholder": "8文字以上、英字と数字の組み合わせ",
+        "confirmLabel": "パスワード確認",
+        "confirmPlaceholder": "新しいパスワードを再入力",
+        "submitBtn": "パスワードを変更",
+        "successTitle": "パスワードが変更されました！",
+        "successMessage": "新しいパスワードでログインしてください。",
+        "loginBtn": "ログインへ",
+        "error": {
+          "passwordShort": "パスワードは8文字以上必要です。",
+          "passwordPattern": "英字と数字を組み合わせてください。",
+          "passwordMismatch": "パスワードが一致しません。",
+          "failed": "パスワードの変更に失敗しました。もう一度お試しください。",
+          "invalidLink": "無効なリンクです。パスワードリセットを再度お試しください。"
+        }
+      },
+      "sessionExpired": "ログインの有効期限が切れました。再度ログインしてください。"
+    },
+    "mypage": {
+    "title": "マイページ",
+    "nicknameLabel": "ニックネーム",
+    "countryLabel": "国",
+    "logoutBtn": "ログアウト",
+    "unknown": "不明"
+    }
+}
