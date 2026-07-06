@@ -12,6 +12,7 @@ const LOCALES = [
   { code: 'zh', label: '中文' },
   { code: 'vi', label: 'Tiếng Việt' },
   { code: 'ja', label: '日本語' },
+  { code: 'th', label: 'ภาษาไทย' },
 ]
 
 function PinIcon() {

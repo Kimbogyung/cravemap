@@ -1,8 +1,13 @@
 import type { ReactNode } from 'react'
 
-export default function AppLayout({ children }: { children: ReactNode }) {
+interface Props {
+  children: ReactNode
+  fullWidth?: boolean
+}
+
+export default function AppLayout({ children, fullWidth = false }: Props) {
   return (
-    <div className="flex flex-col h-dvh max-w-[430px] mx-auto bg-white relative overflow-hidden">
+    <div className={`flex flex-col h-dvh bg-white relative overflow-hidden ${fullWidth ? 'w-full' : 'max-w-[430px] mx-auto'}`}>
       {children}
     </div>
   )

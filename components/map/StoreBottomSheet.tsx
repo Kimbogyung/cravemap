@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import { useRouter } from 'next/navigation'
 import { format } from 'date-fns'
-import { ko, enUS, zhCN, vi as viLocale, ja } from 'date-fns/locale'
+import { ko, enUS, zhCN, vi as viLocale, ja, th as thLocale } from 'date-fns/locale'
 import type { Locale } from 'date-fns'
 import { useAuthStore } from '../../store/authStore'
 import Toast from '../ui/Toast'
@@ -63,6 +63,7 @@ interface Comment {
 interface Props {
   storeId: string
   onClose: () => void
+  isPanel?: boolean
 }
 
 const DATE_LOCALES: Record<string, Locale> = {
@@ -71,11 +72,12 @@ const DATE_LOCALES: Record<string, Locale> = {
   zh: zhCN,
   vi: viLocale,
   ja,
+  th: thLocale,
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function StoreBottomSheet({ storeId, onClose }: Props) {
+export default function StoreBottomSheet({ storeId, onClose, isPanel = false }: Props) {
   const t = useTranslations('storeDetail')
   const tc = useTranslations('community')
   const tCommon = useTranslations('common')
@@ -294,28 +296,54 @@ export default function StoreBottomSheet({ storeId, onClose }: Props) {
       {/* Backdrop — tap to close */}
       <div className="fixed inset-0 z-20" onClick={handleClose} />
 
-      {/* Sheet */}
+      {/* Sheet / Panel */}
       <div
-        className="fixed bottom-0 left-0 right-0 z-30 bg-white rounded-t-[20px] shadow-[0_-4px_32px_rgba(0,0,0,0.12)] flex flex-col overflow-hidden"
-        style={{
-          maxHeight: '80dvh',
-          transform: visible ? `translateY(${dragOffset}px)` : 'translateY(100%)',
-          transition: isDragging
-            ? 'none'
-            : 'transform 0.32s cubic-bezier(0.32, 0.72, 0, 1)',
-        }}
+        className={isPanel
+          ? 'fixed top-0 right-0 h-full z-30 bg-white shadow-[-4px_0_32px_rgba(0,0,0,0.12)] flex flex-col overflow-hidden'
+          : 'fixed bottom-0 left-0 right-0 z-30 bg-white rounded-t-[20px] shadow-[0_-4px_32px_rgba(0,0,0,0.12)] flex flex-col overflow-hidden'
+        }
+        style={isPanel
+          ? {
+              width: '400px',
+              transform: visible ? 'translateX(0)' : 'translateX(100%)',
+              transition: 'transform 0.32s cubic-bezier(0.32, 0.72, 0, 1)',
+            }
+          : {
+              maxHeight: '80dvh',
+              transform: visible ? `translateY(${dragOffset}px)` : 'translateY(100%)',
+              transition: isDragging
+                ? 'none'
+                : 'transform 0.32s cubic-bezier(0.32, 0.72, 0, 1)',
+            }
+        }
       >
-        {/* ── Draggable header ── */}
+        {/* ── Header ── */}
         <div
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
-          className="flex-shrink-0 cursor-grab active:cursor-grabbing"
+          className={`flex-shrink-0 ${isPanel ? '' : 'cursor-grab active:cursor-grabbing'}`}
         >
-          {/* Drag handle */}
-          <div className="flex justify-center pt-[10px] pb-[6px]">
-            <div className="w-9 h-1 bg-[#E0E0E0] rounded-full" />
-          </div>
+          {/* Sheet: drag handle */}
+          {!isPanel && (
+            <div className="flex justify-center pt-[10px] pb-[6px]">
+              <div className="w-9 h-1 bg-[#E0E0E0] rounded-full" />
+            </div>
+          )}
+
+          {/* Panel: close button */}
+          {isPanel && (
+            <div className="flex justify-end px-5 pt-4 pb-1">
+              <button
+                onClick={handleClose}
+                className="w-8 h-8 rounded-full bg-[#F5F5F5] flex items-center justify-center text-[#666] hover:bg-[#EBEBEB] transition-colors"
+              >
+                <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          )}
 
           {/* Tags + Store name */}
           {store && (

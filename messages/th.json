@@ -1,0 +1,204 @@
+{
+    "common": {
+      "nav": {
+        "logo": "CraveMap",
+        "report": "รายงาน",
+        "mypage": "หน้าของฉัน",
+        "login": "เข้าสู่ระบบ",
+        "logout": "ออกจากระบบ"
+      },
+      "button": {
+        "confirm": "ยืนยัน",
+        "cancel": "ยกเลิก",
+        "close": "ปิด",
+        "retry": "ลองอีกครั้ง",
+        "submit": "ส่ง",
+        "delete": "ลบ",
+        "save": "บันทึก",
+        "login": "เข้าสู่ระบบ"
+      }
+    },
+    "map": {
+      "loading": "กำลังโหลดข้อมูลร้านค้า...",
+      "loadError": "ไม่สามารถโหลดข้อมูลร้านค้าได้ กรุณาลองใหม่อีกครั้ง",
+      "mapLoadError": "ไม่สามารถโหลดแผนที่ได้ กรุณารีเฟรชหน้า",
+      "empty": "ยังไม่มีร้านค้าที่ลงทะเบียน มาเป็นคนแรกที่รายงาน!",
+      "filter": {
+        "all": "ทั้งหมด",
+        "restaurant": "🍜 ร้านอาหาร",
+        "mart": "🛒 ซูเปอร์มาร์เก็ต"
+      },
+      "reportLoginRequired": "ต้องเข้าสู่ระบบเพื่อรายงานร้านค้า",
+      "locationPermissionDenied": "ต้องการสิทธิ์การเข้าถึงตำแหน่ง กรุณาอนุญาตในการตั้งค่าเบราว์เซอร์",
+      "locationNotFound": "ไม่สามารถหาตำแหน่งปัจจุบันของคุณได้"
+    },
+    "storeDetail": {
+      "category": {
+        "restaurant": "ร้านอาหาร",
+        "mart": "ซูเปอร์มาร์เก็ต"
+      },
+      "address": "ที่อยู่",
+      "noAddress": "ไม่มีข้อมูลที่อยู่",
+      "photos": "รูปภาพ",
+      "noPhotos": "ยังไม่มีรูปภาพ",
+      "reporter": "ผู้รายงาน",
+      "reportedAt": "วันที่รายงาน",
+      "direction": "เส้นทาง",
+      "loadError": "ไม่สามารถโหลดข้อมูลร้านค้าได้"
+    },
+    "report": {
+      "title": "รายงานร้านค้า",
+      "field": {
+        "name": "ชื่อร้านค้า",
+        "namePlaceholder": "กรอกชื่อร้านค้า (สูงสุด 50 ตัวอักษร)",
+        "country": "ประเทศ",
+        "countryPlaceholder": "เลือกประเทศ",
+        "category": "หมวดหมู่",
+        "location": "ตำแหน่ง",
+        "addressSearch": "ค้นหาที่อยู่",
+        "searchBtn": "ค้นหา",
+        "locationHint": "คลิกที่แผนที่หรือค้นหาที่อยู่เพื่อตั้งตำแหน่ง",
+        "memo": "หมายเหตุ",
+        "memoPlaceholder": "ข้อมูลเพิ่มเติม (ไม่บังคับ สูงสุด 200 ตัวอักษร)",
+        "photos": "รูปภาพ"
+      },
+      "photo": {
+        "upload": "เพิ่มรูปภาพ",
+        "limit": "อัปโหลดได้สูงสุด 3 รูป"
+      },
+      "charCount": "{current}/{max}",
+      "submit": "ส่งรายงาน",
+      "submitSuccess": "ขอบคุณที่รายงาน! แสดงบนแผนที่แล้ว",
+      "error": {
+        "nameRequired": "กรุณากรอกชื่อร้านค้า",
+        "countryRequired": "กรุณาเลือกประเทศ",
+        "categoryRequired": "กรุณาเลือกหมวดหมู่",
+        "locationRequired": "กรุณาตั้งตำแหน่ง",
+        "photosRequired": "กรุณาอัปโหลดรูปภาพอย่างน้อย 1 รูป",
+        "photoSize": "รูปภาพขนาดใหญ่เกินไป กรุณาอัปโหลดรูปที่ต่ำกว่า 1MB",
+        "photoFormat": "รูปแบบไฟล์ไม่รองรับ",
+        "submitFailed": "ส่งรายงานไม่สำเร็จ กรุณาลองใหม่อีกครั้ง"
+      }
+    },
+    "community": {
+      "title": "ความคิดเห็น",
+      "empty": "ยังไม่มีความคิดเห็น มาเป็นคนแรก!",
+      "loginRequired": "ต้องเข้าสู่ระบบเพื่อเขียนความคิดเห็น",
+      "input": {
+        "placeholder": "แชร์ความคิดเห็นเกี่ยวกับที่นี่ (สูงสุด 200 ตัวอักษร)",
+        "submit": "โพสต์",
+        "charCount": "{current}/200"
+      },
+      "delete": {
+        "confirmMessage": "คุณแน่ใจหรือไม่ว่าต้องการลบความคิดเห็นนี้?",
+        "confirmButton": "ลบ",
+        "error": "ลบความคิดเห็นไม่สำเร็จ กรุณาลองใหม่อีกครั้ง"
+      },
+      "error": {
+        "loadFailed": "ไม่สามารถโหลดความคิดเห็นได้ กรุณาลองใหม่อีกครั้ง",
+        "submitFailed": "โพสต์ความคิดเห็นไม่สำเร็จ กรุณาลองใหม่อีกครั้ง"
+      }
+    },
+    "auth": {
+      "login": {
+        "title": "เข้าสู่ระบบ",
+        "subtitle": "ค้นหารสชาติบ้านเกิดใกล้ๆ คุณ",
+        "googleBtn": "ดำเนินการต่อด้วย Google",
+        "orDivider": "หรือ",
+        "emailPlaceholder": "email@example.com",
+        "passwordPlaceholder": "รหัสผ่าน",
+        "submitBtn": "เข้าสู่ระบบด้วยอีเมล",
+        "signupLink": "สมัครสมาชิก",
+        "forgotLink": "ลืมรหัสผ่าน",
+        "error": {
+          "invalid": "กรุณาตรวจสอบอีเมลหรือรหัสผ่าน",
+          "emailNotVerified": "กรุณายืนยันอีเมลของคุณ",
+          "rateLimited": "กรุณาลองใหม่อีกครั้งในภายหลัง",
+          "googleUnavailable": "ไม่สามารถเข้าสู่ระบบด้วย Google ได้ กรุณาใช้อีเมล"
+        },
+        "resendEmailBtn": "ส่งอีเมลยืนยันอีกครั้ง",
+        "resendSuccess": "ส่งอีเมลยืนยันอีกครั้งแล้ว"
+      },
+      "signup": {
+        "title": "สมัครสมาชิก",
+        "emailLabel": "อีเมล",
+        "passwordLabel": "รหัสผ่าน",
+        "confirmLabel": "ยืนยันรหัสผ่าน",
+        "nicknameLabel": "ชื่อเล่น",
+        "countryLabel": "ประเทศ",
+        "emailPlaceholder": "email@example.com",
+        "passwordPlaceholder": "รหัสผ่าน",
+        "passwordHint": "อย่างน้อย 8 ตัวอักษร ผสมตัวอักษรและตัวเลข",
+        "confirmPlaceholder": "กรอกรหัสผ่านอีกครั้ง",
+        "nicknamePlaceholder": "สูงสุด 20 ตัวอักษร",
+        "countryPlaceholder": "เลือก",
+        "submitBtn": "สมัครสมาชิก",
+        "loginPrompt": "มีบัญชีอยู่แล้ว?",
+        "loginLink": "เข้าสู่ระบบ",
+        "error": {
+          "emailInvalid": "รูปแบบอีเมลไม่ถูกต้อง",
+          "emailDuplicate": "อีเมลนี้ถูกใช้แล้ว",
+          "passwordShort": "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร",
+          "passwordPattern": "ผสมตัวอักษรและตัวเลข",
+          "passwordMismatch": "รหัสผ่านไม่ตรงกัน",
+          "nicknameRequired": "กรุณากรอกชื่อเล่น",
+          "countryRequired": "กรุณาเลือกประเทศ",
+          "failed": "สมัครสมาชิกไม่สำเร็จ กรุณาลองใหม่อีกครั้ง"
+        },
+        "verifyTitle": "กรุณายืนยันอีเมล",
+        "verifyMessage": "กรุณายืนยันอีเมลเพื่อสมัครสมาชิกให้เสร็จสมบูรณ์",
+        "resendBtn": "ส่งอีเมลยืนยันอีกครั้ง",
+        "resendCooldown": "ส่งซ้ำได้อีก {seconds} วินาที",
+        "resendSuccess": "ส่งอีเมลยืนยันอีกครั้งแล้ว"
+      },
+      "onboarding": {
+        "title": "ค้นหารสชาติบ้านเกิด\nบนแผนที่",
+        "subtitle": "บันทึกและแชร์ร้านอาหารและซูเปอร์มาร์เก็ต\nต่างชาติกับเพื่อนบ้าน",
+        "nicknameLabel": "ชื่อเล่น",
+        "countryLabel": "ประเทศ",
+        "nicknamePlaceholder": "สูงสุด 20 ตัวอักษร",
+        "countryPlaceholder": "เลือกประเทศ",
+        "submitBtn": "เริ่มต้น",
+        "error": {
+          "nicknameRequired": "กรุณากรอกชื่อเล่น",
+          "countryRequired": "กรุณาเลือกประเทศ",
+          "failed": "บันทึกโปรไฟล์ไม่สำเร็จ กรุณาลองใหม่อีกครั้ง"
+        }
+      },
+      "forgotPassword": {
+        "title": "รีเซ็ตรหัสผ่าน",
+        "description": "กรอกอีเมลของคุณแล้วเราจะส่ง\nลิงก์รีเซ็ตรหัสผ่านให้คุณ",
+        "emailLabel": "อีเมล",
+        "emailPlaceholder": "email@example.com",
+        "submitBtn": "ส่งลิงก์รีเซ็ต",
+        "successMessage": "ส่งลิงก์รีเซ็ตรหัสผ่านไปยังอีเมลของคุณแล้ว"
+      },
+      "resetPassword": {
+        "title": "ตั้งรหัสผ่านใหม่",
+        "description": "กรอกรหัสผ่านใหม่ของคุณ",
+        "newPasswordLabel": "รหัสผ่านใหม่",
+        "newPasswordPlaceholder": "อย่างน้อย 8 ตัวอักษร ผสมตัวอักษรและตัวเลข",
+        "confirmLabel": "ยืนยันรหัสผ่าน",
+        "confirmPlaceholder": "กรอกรหัสผ่านใหม่อีกครั้ง",
+        "submitBtn": "เปลี่ยนรหัสผ่าน",
+        "successTitle": "เปลี่ยนรหัสผ่านแล้ว!",
+        "successMessage": "กรุณาเข้าสู่ระบบด้วยรหัสผ่านใหม่",
+        "loginBtn": "ไปที่หน้าเข้าสู่ระบบ",
+        "error": {
+          "passwordShort": "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร",
+          "passwordPattern": "ผสมตัวอักษรและตัวเลข",
+          "passwordMismatch": "รหัสผ่านไม่ตรงกัน",
+          "failed": "เปลี่ยนรหัสผ่านไม่สำเร็จ กรุณาลองใหม่อีกครั้ง",
+          "invalidLink": "ลิงก์ไม่ถูกต้อง กรุณาขอรีเซ็ตรหัสผ่านใหม่อีกครั้ง"
+        }
+      },
+      "sessionExpired": "เซสชันหมดอายุ กรุณาเข้าสู่ระบบอีกครั้ง"
+    },
+    "mypage": {
+      "title": "หน้าของฉัน",
+      "nicknameLabel": "ชื่อเล่น",
+      "countryLabel": "ประเทศ",
+      "logoutBtn": "ออกจากระบบ",
+      "unknown": "ไม่ทราบ"
+    }
+}

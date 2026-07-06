@@ -11,6 +11,7 @@ import AppLayout from '../layout/AppLayout'
 import TopNav from '../layout/TopNav'
 import Toast from '../ui/Toast'
 import StoreBottomSheet from './StoreBottomSheet'
+import { useIsDesktop } from '../../hooks/useIsDesktop'
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
@@ -47,6 +48,7 @@ export default function MapScreen() {
   const tNav = useTranslations('common.nav')
   const locale = useLocale()
   const { user } = useAuthStore()
+  const isDesktop = useIsDesktop()
 
   // Map refs
   const mapContainerRef = useRef<HTMLDivElement>(null)
@@ -297,50 +299,87 @@ export default function MapScreen() {
   // ── Render ────────────────────────────────────────────────────────────────
 
   return (
-    <AppLayout>
+    <AppLayout fullWidth>
       <TopNav variant="logo" />
 
-      {/* ── Filter bar (two rows) ── */}
-      <div className="flex-shrink-0 border-b border-[#F0F0F0]">
-        {/* 1행: 나라 필터 */}
-        <div className="flex items-center gap-[6px] px-4 py-[8px] overflow-x-auto no-scrollbar">
-          <Chip
-            label={tMap('filter.all')}
-            active={selCountry === ''}
-            onClick={() => setSelCountry('')}
-          />
-          {allCountries.map((c) => (
+      {/* ── Filter bar: 모바일에서만 지도 위에 고정 배치 ── */}
+      {!isDesktop && (
+        <div className="flex-shrink-0 border-b border-[#F0F0F0]">
+          <div className="flex items-center gap-[6px] px-4 py-[8px] overflow-x-auto no-scrollbar">
             <Chip
-              key={c.code}
-              label={`${c.flag_emoji} ${c.name_i18n[locale] ?? c.name_i18n['ko'] ?? c.code}`}
-              active={selCountry === c.code}
-              onClick={() => selectCountry(c.code)}
+              label={tMap('filter.all')}
+              active={selCountry === ''}
+              onClick={() => setSelCountry('')}
             />
-          ))}
+            {allCountries.map((c) => (
+              <Chip
+                key={c.code}
+                label={`${c.flag_emoji} ${c.name_i18n[locale] ?? c.name_i18n['ko'] ?? c.code}`}
+                active={selCountry === c.code}
+                onClick={() => selectCountry(c.code)}
+              />
+            ))}
+          </div>
+          <div className="flex items-center gap-[6px] px-4 pb-[8px] overflow-x-auto no-scrollbar">
+            <Chip
+              label={tMap('filter.all')}
+              active={selCategory === ''}
+              onClick={() => setSelCategory('')}
+            />
+            <Chip
+              label={tMap('filter.restaurant')}
+              active={selCategory === 'restaurant'}
+              onClick={() => selectCategory('restaurant')}
+            />
+            <Chip
+              label={tMap('filter.mart')}
+              active={selCategory === 'mart'}
+              onClick={() => selectCategory('mart')}
+            />
+          </div>
         </div>
-
-        {/* 2행: 카테고리 필터 */}
-        <div className="flex items-center gap-[6px] px-4 pb-[8px] overflow-x-auto no-scrollbar">
-          <Chip
-            label={tMap('filter.all')}
-            active={selCategory === ''}
-            onClick={() => setSelCategory('')}
-          />
-          <Chip
-            label={tMap('filter.restaurant')}
-            active={selCategory === 'restaurant'}
-            onClick={() => selectCategory('restaurant')}
-          />
-          <Chip
-            label={tMap('filter.mart')}
-            active={selCategory === 'mart'}
-            onClick={() => selectCategory('mart')}
-          />
-        </div>
-      </div>
+      )}
 
       {/* ── Map area ── */}
       <div className="flex-1 relative overflow-hidden">
+
+        {/* ── Filter overlay: 데스크톱에서만 지도 위에 오버레이 ── */}
+        {isDesktop && (
+          <div className="absolute top-3 left-3 z-10 flex flex-col gap-[6px]">
+            <div className="flex items-center gap-[6px] flex-wrap">
+              <Chip
+                label={tMap('filter.all')}
+                active={selCountry === ''}
+                onClick={() => setSelCountry('')}
+              />
+              {allCountries.map((c) => (
+                <Chip
+                  key={c.code}
+                  label={`${c.flag_emoji} ${c.name_i18n[locale] ?? c.name_i18n['ko'] ?? c.code}`}
+                  active={selCountry === c.code}
+                  onClick={() => selectCountry(c.code)}
+                />
+              ))}
+            </div>
+            <div className="flex items-center gap-[6px]">
+              <Chip
+                label={tMap('filter.all')}
+                active={selCategory === ''}
+                onClick={() => setSelCategory('')}
+              />
+              <Chip
+                label={tMap('filter.restaurant')}
+                active={selCategory === 'restaurant'}
+                onClick={() => selectCategory('restaurant')}
+              />
+              <Chip
+                label={tMap('filter.mart')}
+                active={selCategory === 'mart'}
+                onClick={() => selectCategory('mart')}
+              />
+            </div>
+          </div>
+        )}
         {/* 지도 컨테이너 */}
         <div ref={mapContainerRef} className="absolute inset-0" />
 
@@ -406,6 +445,7 @@ export default function MapScreen() {
         <StoreBottomSheet
           storeId={selectedStoreId}
           onClose={() => setSelectedStoreId(null)}
+          isPanel={isDesktop}
         />
       )}
     </AppLayout>
@@ -426,10 +466,10 @@ function Chip({
   return (
     <button
       onClick={onClick}
-      className={`flex-shrink-0 h-8 px-[12px] rounded-full text-[13px] font-medium transition-colors whitespace-nowrap ${
+      className={`flex-shrink-0 h-8 px-[12px] rounded-full text-[13px] font-medium transition-colors whitespace-nowrap shadow-sm ${
         active
           ? 'bg-[#E8342A] text-white'
-          : 'bg-[#F5F5F5] text-[#555] hover:bg-[#EBEBEB]'
+          : 'bg-white text-[#555] hover:bg-[#F5F5F5]'
       }`}
     >
       {label}
