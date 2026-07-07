@@ -108,32 +108,61 @@ export default function SignupPage() {
   const labelCls = 'text-[14px] font-semibold mb-2 mt-4 first:mt-0 block'
   const errCls = 'text-[12px] text-[#E8342A] mt-1'
 
-  if (verifyStep) {
-    return (
-      <AppLayout>
-        <TopNav variant="page" title={t('title')} />
-        <div className="flex-1 flex flex-col items-center justify-center px-6 text-center">
+  const brandingPanel = (
+    <div className="hidden lg:flex lg:w-1/2 lg:flex-col lg:items-center lg:justify-center bg-[#E8342A] px-16">
+      <div className="flex flex-col items-center text-center max-w-[380px]">
+        <div
+          style={{
+            width: 88, height: 88,
+            background: '#fff', borderRadius: 26,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            boxShadow: '0 12px 28px rgba(0,0,0,.18)',
+          }}
+        >
           <div
             style={{
-              width: 64, height: 64, background: '#E8342A', borderRadius: 18,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              marginBottom: 24, boxShadow: '0 8px 20px rgba(232,52,42,.35)',
+              width: 32, height: 32,
+              background: '#E8342A',
+              borderRadius: '50% 50% 50% 4px',
+              transform: 'rotate(-45deg)',
             }}
-          >
-            <svg width="28" height="28" fill="none" stroke="#fff" strokeWidth="2.5" viewBox="0 0 24 24">
-              <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z" />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
+          />
+        </div>
+        <p className="font-extrabold text-[32px] text-white mt-6">CraveMap</p>
+        <p className="text-white/80 text-[16px] mt-3 leading-relaxed">{t('subtitle')}</p>
+      </div>
+    </div>
+  )
+
+  if (verifyStep) {
+    return (
+      <AppLayout fullWidth>
+        <TopNav variant="page" title={t('title')} />
+        <div className="flex-1 overflow-y-auto lg:flex lg:overflow-hidden">
+          {brandingPanel}
+          <div className="flex flex-col items-center justify-center px-6 text-center lg:w-1/2">
+            <div
+              style={{
+                width: 64, height: 64, background: '#E8342A', borderRadius: 18,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                marginBottom: 24, boxShadow: '0 8px 20px rgba(232,52,42,.35)',
+              }}
+            >
+              <svg width="28" height="28" fill="none" stroke="#fff" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </div>
+            <h2 className="text-[20px] font-bold mb-3">{t('verifyTitle')}</h2>
+            <p className="text-[#666] text-[15px] leading-relaxed mb-8 lg:max-w-[360px]">{t('verifyMessage')}</p>
+            <button
+              onClick={handleResend}
+              disabled={cooldown > 0}
+              className="w-full lg:max-w-[360px] h-[52px] rounded-full border-2 border-[#E8342A] text-[#E8342A] font-semibold text-[15px] disabled:border-[#E5E5E5] disabled:text-[#999] transition-colors"
+            >
+              {cooldown > 0 ? t('resendCooldown', { seconds: cooldown }) : t('resendBtn')}
+            </button>
           </div>
-          <h2 className="text-[20px] font-bold mb-3">{t('verifyTitle')}</h2>
-          <p className="text-[#666] text-[15px] leading-relaxed mb-8">{t('verifyMessage')}</p>
-          <button
-            onClick={handleResend}
-            disabled={cooldown > 0}
-            className="w-full h-[52px] rounded-full border-2 border-[#E8342A] text-[#E8342A] font-semibold text-[15px] disabled:border-[#E5E5E5] disabled:text-[#999] transition-colors"
-          >
-            {cooldown > 0 ? t('resendCooldown', { seconds: cooldown }) : t('resendBtn')}
-          </button>
         </div>
         {toast && (
           <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />
@@ -143,96 +172,100 @@ export default function SignupPage() {
   }
 
   return (
-    <AppLayout>
+    <AppLayout fullWidth>
       <TopNav variant="page" title={t('title')} />
 
-      <div className="flex-1 overflow-y-auto">
-        <form onSubmit={handleSubmit} className="px-6 md:px-10 py-5 flex flex-col">
-          <label className={labelCls}>{t('emailLabel')}</label>
-          <input
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            placeholder={t('emailPlaceholder')}
-            className={inputCls}
-            autoComplete="email"
-          />
-          {errors.email && <p className={errCls}>{errors.email}</p>}
+      <div className="flex-1 overflow-y-auto lg:flex lg:overflow-hidden">
+        {brandingPanel}
 
-          <label className={labelCls}>{t('passwordLabel')}</label>
-          <input
-            type="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            placeholder={t('passwordPlaceholder')}
-            className={inputCls}
-            autoComplete="new-password"
-          />
-          <p className="text-[12px] text-[#aaa] mt-1">{t('passwordHint')}</p>
-          {errors.password && <p className={errCls}>{errors.password}</p>}
+        <div className="lg:w-1/2 lg:overflow-y-auto">
+          <form onSubmit={handleSubmit} className="px-6 md:px-10 py-5 flex flex-col lg:max-w-[400px] lg:mx-auto lg:py-16">
+            <label className={labelCls}>{t('emailLabel')}</label>
+            <input
+              type="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              placeholder={t('emailPlaceholder')}
+              className={inputCls}
+              autoComplete="email"
+            />
+            {errors.email && <p className={errCls}>{errors.email}</p>}
 
-          <label className={labelCls}>{t('confirmLabel')}</label>
-          <input
-            type="password"
-            value={confirm}
-            onChange={e => setConfirm(e.target.value)}
-            placeholder={t('confirmPlaceholder')}
-            className={inputCls}
-            autoComplete="new-password"
-          />
-          {errors.confirm && <p className={errCls}>{errors.confirm}</p>}
+            <label className={labelCls}>{t('passwordLabel')}</label>
+            <input
+              type="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              placeholder={t('passwordPlaceholder')}
+              className={inputCls}
+              autoComplete="new-password"
+            />
+            <p className="text-[12px] text-[#aaa] mt-1">{t('passwordHint')}</p>
+            {errors.password && <p className={errCls}>{errors.password}</p>}
 
-          <label className={labelCls}>{t('nicknameLabel')}</label>
-          <input
-            type="text"
-            value={nickname}
-            onChange={e => setNickname(e.target.value)}
-            maxLength={20}
-            placeholder={t('nicknamePlaceholder')}
-            className={inputCls}
-          />
-          {errors.nickname && <p className={errCls}>{errors.nickname}</p>}
+            <label className={labelCls}>{t('confirmLabel')}</label>
+            <input
+              type="password"
+              value={confirm}
+              onChange={e => setConfirm(e.target.value)}
+              placeholder={t('confirmPlaceholder')}
+              className={inputCls}
+              autoComplete="new-password"
+            />
+            {errors.confirm && <p className={errCls}>{errors.confirm}</p>}
 
-          <label className={labelCls}>{t('countryLabel')}</label>
-          <div className="relative">
-            <select
-              value={countryCode}
-              onChange={e => setCountryCode(e.target.value)}
-              className={`${inputCls} appearance-none pr-10 cursor-pointer`}
+            <label className={labelCls}>{t('nicknameLabel')}</label>
+            <input
+              type="text"
+              value={nickname}
+              onChange={e => setNickname(e.target.value)}
+              maxLength={20}
+              placeholder={t('nicknamePlaceholder')}
+              className={inputCls}
+            />
+            {errors.nickname && <p className={errCls}>{errors.nickname}</p>}
+
+            <label className={labelCls}>{t('countryLabel')}</label>
+            <div className="relative">
+              <select
+                value={countryCode}
+                onChange={e => setCountryCode(e.target.value)}
+                className={`${inputCls} appearance-none pr-10 cursor-pointer`}
+              >
+                <option value="">{t('countryPlaceholder')}</option>
+                {countries.map(c => (
+                  <option key={c.code} value={c.code}>
+                    {c.flag_emoji} {c.name_i18n[locale] ?? c.name_i18n['ko'] ?? c.code}
+                  </option>
+                ))}
+              </select>
+              <svg
+                className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2"
+                width="16" height="16" fill="none" stroke="#999" strokeWidth="2" viewBox="0 0 24 24"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </div>
+            {errors.country && <p className={errCls}>{errors.country}</p>}
+
+            {/* 제출 버튼 */}
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full h-[54px] rounded-full bg-[#E8342A] text-white text-[16px] font-bold mt-6 disabled:bg-[#E5E5E5] disabled:text-[#999] transition-colors"
             >
-              <option value="">{t('countryPlaceholder')}</option>
-              {countries.map(c => (
-                <option key={c.code} value={c.code}>
-                  {c.flag_emoji} {c.name_i18n[locale] ?? c.name_i18n['ko'] ?? c.code}
-                </option>
-              ))}
-            </select>
-            <svg
-              className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2"
-              width="16" height="16" fill="none" stroke="#999" strokeWidth="2" viewBox="0 0 24 24"
-            >
-              <path d="M6 9l6 6 6-6" />
-            </svg>
-          </div>
-          {errors.country && <p className={errCls}>{errors.country}</p>}
+              {t('submitBtn')}
+            </button>
 
-          {/* 제출 버튼 */}
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full h-[54px] rounded-full bg-[#E8342A] text-white text-[16px] font-bold mt-6 disabled:bg-[#E5E5E5] disabled:text-[#999] transition-colors"
-          >
-            {t('submitBtn')}
-          </button>
-
-          {/* 로그인 링크 */}
-          <p className="text-center mt-[18px] text-[14px] text-[#888] pb-6">
-            {t('loginPrompt')}{' '}
-            <Link href={`/${locale}/login`} className="text-[#E8342A] font-semibold">
-              {t('loginLink')}
-            </Link>
-          </p>
-        </form>
+            {/* 로그인 링크 */}
+            <p className="text-center mt-[18px] text-[14px] text-[#888] pb-6">
+              {t('loginPrompt')}{' '}
+              <Link href={`/${locale}/login`} className="text-[#E8342A] font-semibold">
+                {t('loginLink')}
+              </Link>
+            </p>
+          </form>
+        </div>
       </div>
 
       {toast && (

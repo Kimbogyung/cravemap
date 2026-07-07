@@ -67,39 +67,46 @@ export default function MypagePage() {
     : (profile?.country_code ?? t('unknown'))
 
   return (
-    <AppLayout>
+    <AppLayout fullWidth>
       <TopNav variant="page" title={t('title')} />
 
-      <div className="flex-1 overflow-y-auto px-6 md:px-10 py-6">
-        {/* 프로필 헤더 */}
-        <div className="flex flex-col items-center pt-4 pb-8">
-          <div
-            className="w-[80px] h-[80px] rounded-full bg-[#E8342A] flex items-center justify-center text-white text-[32px] font-bold mb-4"
-            style={{ boxShadow: '0 4px 14px rgba(232,52,42,.3)' }}
-          >
-            {initial}
+      <div className="flex-1 overflow-y-auto px-6 md:px-10 py-6 lg:px-10 lg:py-10">
+        <div className="lg:max-w-5xl lg:mx-auto lg:grid lg:grid-cols-3 lg:gap-8 lg:items-start">
+          {/* 프로필 카드 */}
+          <div className="lg:col-span-1 lg:bg-[#FAFAFA] lg:rounded-[20px] lg:p-8 lg:sticky lg:top-10">
+            <div className="flex flex-col items-center pt-4 pb-8 lg:pt-0 lg:pb-0">
+              <div
+                className="w-[80px] h-[80px] rounded-full bg-[#E8342A] flex items-center justify-center text-white text-[32px] font-bold mb-4"
+                style={{ boxShadow: '0 4px 14px rgba(232,52,42,.3)' }}
+              >
+                {initial}
+              </div>
+              <p className="text-[20px] font-bold text-[#1A1A1A]">{nickname}</p>
+              <p className="text-[14px] text-[#999] mt-1">{user.email}</p>
+            </div>
+
+            {/* 구분선 (모바일 전용) */}
+            <div className="h-px bg-[#F0F0F0] mb-6 lg:hidden" />
           </div>
-          <p className="text-[20px] font-bold text-[#1A1A1A]">{nickname}</p>
-          <p className="text-[14px] text-[#999] mt-1">{user.email}</p>
+
+          {/* 계정 정보 카드 */}
+          <div className="lg:col-span-2 lg:bg-[#FAFAFA] lg:rounded-[20px] lg:p-8">
+            {/* 프로필 정보 */}
+            <div className="flex flex-col gap-0">
+              <ProfileRow label={t('nicknameLabel')} value={nickname} />
+              <ProfileRow label={t('countryLabel')} value={countryName} />
+            </div>
+
+            {/* 로그아웃 버튼 */}
+            <button
+              onClick={handleLogout}
+              disabled={loggingOut}
+              className="w-full h-[54px] rounded-full border-2 border-[#E8342A] text-[#E8342A] text-[16px] font-bold mt-10 disabled:border-[#E5E5E5] disabled:text-[#999] transition-colors lg:max-w-[320px]"
+            >
+              {t('logoutBtn')}
+            </button>
+          </div>
         </div>
-
-        {/* 구분선 */}
-        <div className="h-px bg-[#F0F0F0] mb-6" />
-
-        {/* 프로필 정보 */}
-        <div className="flex flex-col gap-0">
-          <ProfileRow label={t('nicknameLabel')} value={nickname} />
-          <ProfileRow label={t('countryLabel')} value={countryName} />
-        </div>
-
-        {/* 로그아웃 버튼 */}
-        <button
-          onClick={handleLogout}
-          disabled={loggingOut}
-          className="w-full h-[54px] rounded-full border-2 border-[#E8342A] text-[#E8342A] text-[16px] font-bold mt-10 disabled:border-[#E5E5E5] disabled:text-[#999] transition-colors"
-        >
-          {t('logoutBtn')}
-        </button>
       </div>
 
       {toast && (

@@ -165,152 +165,159 @@ export default function ReportPage() {
   if (!authInitialized || !user) return null
 
   return (
-    <AppLayout>
+    <AppLayout fullWidth>
       <TopNav variant="page" title={t('title')} />
 
       {/* Scrollable form */}
       <div className="flex-1 overflow-y-auto no-scrollbar">
-        <div className="px-5 md:px-10 py-6 space-y-7 pb-32">
+        <div className="px-5 md:px-10 py-6 pb-32 lg:max-w-6xl lg:mx-auto lg:grid lg:grid-cols-2 lg:gap-12 lg:items-start">
 
-          {/* 가게 이름 */}
-          <Field label={t('field.name')} required>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value.slice(0, 50))}
-              placeholder={t('field.namePlaceholder')}
-              className="w-full h-[48px] px-4 rounded-[12px] bg-[#F5F5F5] text-[15px] text-[#1A1A1A] placeholder-[#BBBBBB] outline-none focus:ring-2 focus:ring-[#E8342A]/30"
-            />
-            <p className="text-right text-[11px] text-[#BBBBBB] mt-1">
-              {name.length}/50
-            </p>
-          </Field>
+          {/* 왼쪽: 폼 필드 */}
+          <div className="space-y-7">
+            {/* 가게 이름 */}
+            <Field label={t('field.name')} required>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value.slice(0, 50))}
+                placeholder={t('field.namePlaceholder')}
+                className="w-full h-[48px] px-4 rounded-[12px] bg-[#F5F5F5] text-[15px] text-[#1A1A1A] placeholder-[#BBBBBB] outline-none focus:ring-2 focus:ring-[#E8342A]/30"
+              />
+              <p className="text-right text-[11px] text-[#BBBBBB] mt-1">
+                {name.length}/50
+              </p>
+            </Field>
 
-          {/* 나라 선택 */}
-          <Field label={t('field.country')} required>
-            <div className="flex flex-wrap gap-2">
-              {countries.map((c) => (
-                <button
-                  key={c.code}
-                  type="button"
-                  onClick={() => setCountryCode(c.code)}
-                  className={`flex items-center gap-1 px-[12px] py-[7px] rounded-full text-[13px] font-medium border transition-colors ${
-                    countryCode === c.code
-                      ? 'bg-[#E8342A] text-white border-[#E8342A]'
-                      : 'bg-white text-[#555] border-[#E0E0E0]'
-                  }`}
-                >
-                  <span>{c.flag_emoji}</span>
-                  <span>{c.name_i18n[locale] ?? c.name_i18n['ko'] ?? c.code}</span>
-                </button>
-              ))}
-            </div>
-          </Field>
-
-          {/* 카테고리 */}
-          <Field label={t('field.category')} required>
-            <div className="flex gap-2">
-              {(['restaurant', 'mart'] as const).map((cat) => (
-                <button
-                  key={cat}
-                  type="button"
-                  onClick={() => setCategory(cat)}
-                  className={`flex-1 py-[10px] rounded-[12px] text-[14px] font-medium border transition-colors ${
-                    category === cat
-                      ? 'bg-[#E8342A] text-white border-[#E8342A]'
-                      : 'bg-white text-[#555] border-[#E0E0E0]'
-                  }`}
-                >
-                  {cat === 'restaurant' ? '🍜 ' : '🛒 '}
-                  {tDetail(`category.${cat}`)}
-                </button>
-              ))}
-            </div>
-          </Field>
-
-          {/* 위치 */}
-          <Field label={t('field.location')} required>
-            <LocationPicker
-              searchPlaceholder={t('field.addressSearch')}
-              onLocationChange={setLocation}
-            />
-          </Field>
-
-          {/* 사진 */}
-          <Field label={t('field.photos')} required>
-            <div className="flex gap-3 flex-wrap">
-              {photos.map((file, i) => (
-                <div
-                  key={i}
-                  className="relative w-[90px] h-[90px] rounded-[12px] overflow-hidden bg-[#F0F0F0] flex-shrink-0"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={URL.createObjectURL(file)}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
+            {/* 나라 선택 */}
+            <Field label={t('field.country')} required>
+              <div className="flex flex-wrap gap-2">
+                {countries.map((c) => (
                   <button
+                    key={c.code}
                     type="button"
-                    onClick={() => removePhoto(i)}
-                    className="absolute top-[5px] right-[5px] w-5 h-5 bg-black/50 rounded-full flex items-center justify-center"
+                    onClick={() => setCountryCode(c.code)}
+                    className={`flex items-center gap-1 px-[12px] py-[7px] rounded-full text-[13px] font-medium border transition-colors ${
+                      countryCode === c.code
+                        ? 'bg-[#E8342A] text-white border-[#E8342A]'
+                        : 'bg-white text-[#555] border-[#E0E0E0]'
+                    }`}
                   >
-                    <svg width="9" height="9" fill="none" stroke="white" strokeWidth="2.2" viewBox="0 0 10 10">
-                      <path d="M1.5 1.5l7 7M8.5 1.5l-7 7" />
-                    </svg>
+                    <span>{c.flag_emoji}</span>
+                    <span>{c.name_i18n[locale] ?? c.name_i18n['ko'] ?? c.code}</span>
                   </button>
-                </div>
-              ))}
+                ))}
+              </div>
+            </Field>
 
-              {photos.length < 3 && (
-                <label className="w-[90px] h-[90px] rounded-[12px] border-2 border-dashed border-[#E0E0E0] flex flex-col items-center justify-center cursor-pointer text-[#BBBBBB] flex-shrink-0 hover:border-[#E8342A] hover:text-[#E8342A] transition-colors">
-                  <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                  <span className="text-[11px] mt-1">{t('photo.upload')}</span>
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept="image/jpeg,image/jpg,image/png,image/webp"
-                    multiple
-                    className="hidden"
-                    onChange={handlePhotoSelect}
-                  />
-                </label>
-              )}
-            </div>
-            <p className="text-[12px] text-[#BBBBBB] mt-2">{t('photo.limit')}</p>
-          </Field>
+            {/* 카테고리 */}
+            <Field label={t('field.category')} required>
+              <div className="flex gap-2">
+                {(['restaurant', 'mart'] as const).map((cat) => (
+                  <button
+                    key={cat}
+                    type="button"
+                    onClick={() => setCategory(cat)}
+                    className={`flex-1 py-[10px] rounded-[12px] text-[14px] font-medium border transition-colors ${
+                      category === cat
+                        ? 'bg-[#E8342A] text-white border-[#E8342A]'
+                        : 'bg-white text-[#555] border-[#E0E0E0]'
+                    }`}
+                  >
+                    {cat === 'restaurant' ? '🍜 ' : '🛒 '}
+                    {tDetail(`category.${cat}`)}
+                  </button>
+                ))}
+              </div>
+            </Field>
 
-          {/* 메모 */}
-          <Field label={t('field.memo')}>
-            <textarea
-              value={memo}
-              onChange={(e) => setMemo(e.target.value.slice(0, 200))}
-              placeholder={t('field.memoPlaceholder')}
-              rows={3}
-              className="w-full px-4 py-3 rounded-[12px] bg-[#F5F5F5] text-[15px] text-[#1A1A1A] placeholder-[#BBBBBB] outline-none focus:ring-2 focus:ring-[#E8342A]/30 resize-none"
-            />
-            <p className="text-right text-[11px] text-[#BBBBBB] mt-1">
-              {memo.length}/200
-            </p>
-          </Field>
+            {/* 사진 */}
+            <Field label={t('field.photos')} required>
+              <div className="flex gap-3 flex-wrap">
+                {photos.map((file, i) => (
+                  <div
+                    key={i}
+                    className="relative w-[90px] h-[90px] rounded-[12px] overflow-hidden bg-[#F0F0F0] flex-shrink-0"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={URL.createObjectURL(file)}
+                      alt=""
+                      className="w-full h-full object-cover"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => removePhoto(i)}
+                      className="absolute top-[5px] right-[5px] w-5 h-5 bg-black/50 rounded-full flex items-center justify-center"
+                    >
+                      <svg width="9" height="9" fill="none" stroke="white" strokeWidth="2.2" viewBox="0 0 10 10">
+                        <path d="M1.5 1.5l7 7M8.5 1.5l-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                ))}
+
+                {photos.length < 3 && (
+                  <label className="w-[90px] h-[90px] rounded-[12px] border-2 border-dashed border-[#E0E0E0] flex flex-col items-center justify-center cursor-pointer text-[#BBBBBB] flex-shrink-0 hover:border-[#E8342A] hover:text-[#E8342A] transition-colors">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                    <span className="text-[11px] mt-1">{t('photo.upload')}</span>
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept="image/jpeg,image/jpg,image/png,image/webp"
+                      multiple
+                      className="hidden"
+                      onChange={handlePhotoSelect}
+                    />
+                  </label>
+                )}
+              </div>
+              <p className="text-[12px] text-[#BBBBBB] mt-2">{t('photo.limit')}</p>
+            </Field>
+
+            {/* 메모 */}
+            <Field label={t('field.memo')}>
+              <textarea
+                value={memo}
+                onChange={(e) => setMemo(e.target.value.slice(0, 200))}
+                placeholder={t('field.memoPlaceholder')}
+                rows={3}
+                className="w-full px-4 py-3 rounded-[12px] bg-[#F5F5F5] text-[15px] text-[#1A1A1A] placeholder-[#BBBBBB] outline-none focus:ring-2 focus:ring-[#E8342A]/30 resize-none"
+              />
+              <p className="text-right text-[11px] text-[#BBBBBB] mt-1">
+                {memo.length}/200
+              </p>
+            </Field>
+          </div>
+
+          {/* 오른쪽: 위치 + 미니 지도 */}
+          <div className="mt-7 lg:mt-0 lg:sticky lg:top-6">
+            <Field label={t('field.location')} required>
+              <LocationPicker
+                searchPlaceholder={t('field.addressSearch')}
+                onLocationChange={setLocation}
+              />
+            </Field>
+          </div>
         </div>
       </div>
 
       {/* Fixed submit button */}
       <div className="flex-shrink-0 px-5 md:px-10 py-4 bg-white border-t border-[#F0F0F0]">
-        <button
-          type="button"
-          onClick={handleSubmit}
-          disabled={!isValid || submitting}
-          className="w-full h-[52px] rounded-[14px] text-[16px] font-bold transition-all flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed bg-[#E8342A] text-white active:scale-[0.98]"
-        >
-          {submitting && (
-            <div className="w-[18px] h-[18px] border-2 border-white border-t-transparent rounded-full animate-spin" />
-          )}
-          {t('submit')}
-        </button>
+        <div className="lg:max-w-6xl lg:mx-auto lg:grid lg:grid-cols-2 lg:gap-12">
+          <button
+            type="button"
+            onClick={handleSubmit}
+            disabled={!isValid || submitting}
+            className="w-full h-[52px] rounded-[14px] text-[16px] font-bold transition-all flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed bg-[#E8342A] text-white active:scale-[0.98]"
+          >
+            {submitting && (
+              <div className="w-[18px] h-[18px] border-2 border-white border-t-transparent rounded-full animate-spin" />
+            )}
+            {t('submit')}
+          </button>
+        </div>
       </div>
 
       {toast && (
@@ -559,7 +566,7 @@ function LocationPicker({
       </div>
 
       {/* Mini map */}
-      <div className="relative w-full rounded-[12px] overflow-hidden bg-[#F0F0F0]" style={{ height: 220 }}>
+      <div className="relative w-full h-[220px] lg:h-[420px] rounded-[12px] overflow-hidden bg-[#F0F0F0]">
         <div ref={mapContainerRef} className="absolute inset-0" />
         {!mapReady && (
           <div className="absolute inset-0 flex items-center justify-center bg-[#F0F0F0]">

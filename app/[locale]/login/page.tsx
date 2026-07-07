@@ -129,80 +129,110 @@ export default function LoginPage() {
   const inputCls = 'w-full h-[52px] border border-[#E5E5E5] rounded-[14px] px-4 text-[15px] outline-none focus:border-[#E8342A] transition-colors font-[inherit] bg-white'
 
   return (
-    <AppLayout>
+    <AppLayout fullWidth>
       <TopNav variant="page" title={t('title')} />
 
-      <div className="flex-1 px-6 md:px-10 flex flex-col overflow-y-auto">
-        {/* 로고 */}
-        <div className="flex flex-col items-center mt-[34px] mb-[30px]">
-          <PinLogo />
-          <p className="font-extrabold text-[22px] text-[#E8342A] mt-[14px]">CraveMap</p>
-          <p className="text-[#999] text-[14px] mt-1">{t('subtitle')}</p>
+      <div className="flex-1 overflow-y-auto lg:flex lg:overflow-hidden">
+        {/* 왼쪽: 브랜딩 패널 (데스크톱 전용) */}
+        <div className="hidden lg:flex lg:w-1/2 lg:flex-col lg:items-center lg:justify-center bg-[#E8342A] px-16">
+          <div className="flex flex-col items-center text-center max-w-[380px]">
+            <div
+              style={{
+                width: 88, height: 88,
+                background: '#fff', borderRadius: 26,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                boxShadow: '0 12px 28px rgba(0,0,0,.18)',
+              }}
+            >
+              <div
+                style={{
+                  width: 32, height: 32,
+                  background: '#E8342A',
+                  borderRadius: '50% 50% 50% 4px',
+                  transform: 'rotate(-45deg)',
+                }}
+              />
+            </div>
+            <p className="font-extrabold text-[32px] text-white mt-6">CraveMap</p>
+            <p className="text-white/80 text-[16px] mt-3 leading-relaxed">{t('subtitle')}</p>
+          </div>
         </div>
 
-        {/* Google 로그인 */}
-        <button
-          onClick={handleGoogleLogin}
-          disabled={loading}
-          className="w-full h-[54px] border border-[#E5E5E5] rounded-full flex items-center justify-center gap-[10px] text-[15px] font-semibold text-[#1A1A1A] bg-white disabled:opacity-60"
-        >
-          <GoogleIcon />
-          {t('googleBtn')}
-        </button>
+        {/* 오른쪽: 폼 패널 */}
+        <div className="flex flex-col px-6 md:px-10 lg:w-1/2 lg:overflow-y-auto lg:px-16">
+          <div className="w-full lg:max-w-[400px] lg:mx-auto lg:my-auto">
+            {/* 로고 (모바일/태블릿 전용) */}
+            <div className="flex flex-col items-center mt-[34px] mb-[30px] lg:hidden">
+              <PinLogo />
+              <p className="font-extrabold text-[22px] text-[#E8342A] mt-[14px]">CraveMap</p>
+              <p className="text-[#999] text-[14px] mt-1">{t('subtitle')}</p>
+            </div>
 
-        {/* 구분선 */}
-        <div className="flex items-center gap-3 my-[22px]">
-          <div className="flex-1 h-px bg-[#EEE]" />
-          <span className="text-[#bbb] text-[13px]">{t('orDivider')}</span>
-          <div className="flex-1 h-px bg-[#EEE]" />
-        </div>
+            {/* Google 로그인 */}
+            <button
+              onClick={handleGoogleLogin}
+              disabled={loading}
+              className="w-full h-[54px] border border-[#E5E5E5] rounded-full flex items-center justify-center gap-[10px] text-[15px] font-semibold text-[#1A1A1A] bg-white disabled:opacity-60 lg:mt-16"
+            >
+              <GoogleIcon />
+              {t('googleBtn')}
+            </button>
 
-        {/* 이메일 폼 */}
-        <form onSubmit={handleEmailLogin} className="flex flex-col gap-0">
-          <input
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            placeholder={t('emailPlaceholder')}
-            className={`${inputCls} mb-[10px]`}
-            autoComplete="email"
-          />
-          <input
-            type="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            placeholder={t('passwordPlaceholder')}
-            className={inputCls}
-            autoComplete="current-password"
-          />
-          <button
-            type="submit"
-            disabled={loading || !email || !password}
-            className="w-full h-[54px] rounded-full bg-[#E8342A] text-white text-[16px] font-bold mt-4 disabled:bg-[#E5E5E5] disabled:text-[#999] transition-colors"
-          >
-            {t('submitBtn')}
-          </button>
-        </form>
+            {/* 구분선 */}
+            <div className="flex items-center gap-3 my-[22px]">
+              <div className="flex-1 h-px bg-[#EEE]" />
+              <span className="text-[#bbb] text-[13px]">{t('orDivider')}</span>
+              <div className="flex-1 h-px bg-[#EEE]" />
+            </div>
 
-        {/* 인증 메일 재발송 */}
-        {showResend && (
-          <button
-            onClick={handleResend}
-            className="mt-3 text-[14px] text-[#E8342A] font-semibold text-center"
-          >
-            {t('resendEmailBtn')}
-          </button>
-        )}
+            {/* 이메일 폼 */}
+            <form onSubmit={handleEmailLogin} className="flex flex-col gap-0">
+              <input
+                type="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder={t('emailPlaceholder')}
+                className={`${inputCls} mb-[10px]`}
+                autoComplete="email"
+              />
+              <input
+                type="password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                placeholder={t('passwordPlaceholder')}
+                className={inputCls}
+                autoComplete="current-password"
+              />
+              <button
+                type="submit"
+                disabled={loading || !email || !password}
+                className="w-full h-[54px] rounded-full bg-[#E8342A] text-white text-[16px] font-bold mt-4 disabled:bg-[#E5E5E5] disabled:text-[#999] transition-colors"
+              >
+                {t('submitBtn')}
+              </button>
+            </form>
 
-        {/* 하단 링크 */}
-        <div className="flex justify-center gap-[18px] mt-[22px] text-[14px] pb-8">
-          <Link href={`/${locale}/signup`} className="text-[#E8342A] font-semibold">
-            {t('signupLink')}
-          </Link>
-          <span className="text-[#DDD]">|</span>
-          <Link href={`/${locale}/forgot-password`} className="text-[#888]">
-            {t('forgotLink')}
-          </Link>
+            {/* 인증 메일 재발송 */}
+            {showResend && (
+              <button
+                onClick={handleResend}
+                className="mt-3 text-[14px] text-[#E8342A] font-semibold text-center w-full"
+              >
+                {t('resendEmailBtn')}
+              </button>
+            )}
+
+            {/* 하단 링크 */}
+            <div className="flex justify-center gap-[18px] mt-[22px] text-[14px] pb-8">
+              <Link href={`/${locale}/signup`} className="text-[#E8342A] font-semibold">
+                {t('signupLink')}
+              </Link>
+              <span className="text-[#DDD]">|</span>
+              <Link href={`/${locale}/forgot-password`} className="text-[#888]">
+                {t('forgotLink')}
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
 
