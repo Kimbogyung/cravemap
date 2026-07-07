@@ -170,7 +170,7 @@ export default function ReportPage() {
 
       {/* Scrollable form */}
       <div className="flex-1 overflow-y-auto no-scrollbar">
-        <div className="px-5 py-6 space-y-7 pb-32">
+        <div className="px-5 md:px-10 py-6 space-y-7 pb-32">
 
           {/* 가게 이름 */}
           <Field label={t('field.name')} required>
@@ -299,7 +299,7 @@ export default function ReportPage() {
       </div>
 
       {/* Fixed submit button */}
-      <div className="flex-shrink-0 px-5 py-4 bg-white border-t border-[#F0F0F0]">
+      <div className="flex-shrink-0 px-5 md:px-10 py-4 bg-white border-t border-[#F0F0F0]">
         <button
           type="button"
           onClick={handleSubmit}
@@ -365,13 +365,23 @@ function LocationPicker({
   const onChangeRef = useRef(onLocationChange)
   useEffect(() => { onChangeRef.current = onLocationChange }, [onLocationChange])
 
-  // ── KakaoMap init (same pattern as MapScreen) ───────────────────────────
+  // ── KakaoMap init (center resolved from geolocation, fallback to 동서대학교) ──
 
-  const createMiniMap = useCallback(() => {
-    if (!mapContainerRef.current) return
+  // 동서대학교 (geolocation 거부/실패 시 폴백 좌표)
+  const FALLBACK_CENTER = { lat: 35.1531, lng: 129.0595 }
+
+  const centerRef = useRef<{ lat: number; lng: number } | null>(null)
+  const scriptReadyRef = useRef(false)
+  const mapCreatedRef = useRef(false)
+
+  const tryCreateMap = useCallback(() => {
+    if (mapCreatedRef.current) return
+    if (!scriptReadyRef.current || !centerRef.current || !mapContainerRef.current) return
+    mapCreatedRef.current = true
+
     try {
       const map = new window.kakao.maps.Map(mapContainerRef.current, {
-        center: new window.kakao.maps.LatLng(35.1531, 129.0595),
+        center: new window.kakao.maps.LatLng(centerRef.current.lat, centerRef.current.lng),
         level: 4,
       })
       mapInstanceRef.current = map
@@ -392,35 +402,60 @@ function LocationPicker({
     }
   }, [])
 
+  // 현재 위치 감지 → 실패/거부 시 폴백 좌표 사용
+  useEffect(() => {
+    if (typeof navigator === 'undefined' || !navigator.geolocation) {
+      centerRef.current = FALLBACK_CENTER
+      tryCreateMap()
+      return
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        centerRef.current = { lat: pos.coords.latitude, lng: pos.coords.longitude }
+        tryCreateMap()
+      },
+      () => {
+        centerRef.current = FALLBACK_CENTER
+        tryCreateMap()
+      },
+      { enableHighAccuracy: true, timeout: 8000, maximumAge: 60000 }
+    )
+  }, [tryCreateMap])
+
   useEffect(() => {
     if (!mapContainerRef.current) return
     const KEY = process.env.NEXT_PUBLIC_KAKAO_MAP_KEY
     if (!KEY) return
     let mounted = true
 
-    function onScriptLoad() {
+    function onKakaoReady() {
       if (!mounted) return
-      window.kakao.maps.load(createMiniMap)
+      window.kakao.maps.load(() => {
+        if (!mounted) return
+        scriptReadyRef.current = true
+        tryCreateMap()
+      })
     }
 
     if (window.kakao?.maps) {
-      window.kakao.maps.load(createMiniMap)
+      onKakaoReady()
       return () => { mounted = false }
     }
 
     const existing = document.querySelector<HTMLScriptElement>('script[src*="dapi.kakao.com"]')
     if (existing) {
-      if (window.kakao?.maps) window.kakao.maps.load(createMiniMap)
-      else existing.addEventListener('load', onScriptLoad, { once: true })
+      if (window.kakao?.maps) onKakaoReady()
+      else existing.addEventListener('load', onKakaoReady, { once: true })
       return () => { mounted = false }
     }
 
     const script = document.createElement('script')
     script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${KEY}&libraries=services&autoload=false`
-    script.addEventListener('load', onScriptLoad, { once: true })
+    script.addEventListener('load', onKakaoReady, { once: true })
     document.head.appendChild(script)
     return () => { mounted = false }
-  }, [createMiniMap])
+  }, [tryCreateMap])
 
   // ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -524,11 +559,14 @@ function LocationPicker({
       </div>
 
       {/* Mini map */}
-      <div
-        ref={mapContainerRef}
-        className="w-full rounded-[12px] overflow-hidden bg-[#F0F0F0]"
-        style={{ height: 220 }}
-      />
+      <div className="relative w-full rounded-[12px] overflow-hidden bg-[#F0F0F0]" style={{ height: 220 }}>
+        <div ref={mapContainerRef} className="absolute inset-0" />
+        {!mapReady && (
+          <div className="absolute inset-0 flex items-center justify-center bg-[#F0F0F0]">
+            <div className="w-7 h-7 border-[3px] border-[#E8342A] border-t-transparent rounded-full animate-spin" />
+          </div>
+        )}
+      </div>
 
       {/* Selected address */}
       {selectedAddress && (

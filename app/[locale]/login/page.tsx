@@ -132,7 +132,7 @@ export default function LoginPage() {
     <AppLayout>
       <TopNav variant="page" title={t('title')} />
 
-      <div className="flex-1 px-6 flex flex-col overflow-y-auto">
+      <div className="flex-1 px-6 md:px-10 flex flex-col overflow-y-auto">
         {/* 로고 */}
         <div className="flex flex-col items-center mt-[34px] mb-[30px]">
           <PinLogo />

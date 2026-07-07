@@ -38,7 +38,7 @@ export default function ForgotPasswordPage() {
     <AppLayout>
       <TopNav variant="page" title={t('title')} />
 
-      <div className="flex-1 px-6 py-6 flex flex-col">
+      <div className="flex-1 px-6 md:px-10 py-6 flex flex-col">
         <p className="text-[#666] text-[15px] leading-[1.6] mb-7">
           {descLines.map((line, i) => (
             <span key={i}>{line}{i < descLines.length - 1 && <br />}</span>

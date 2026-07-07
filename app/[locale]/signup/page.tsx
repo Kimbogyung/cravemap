@@ -147,7 +147,7 @@ export default function SignupPage() {
       <TopNav variant="page" title={t('title')} />
 
       <div className="flex-1 overflow-y-auto">
-        <form onSubmit={handleSubmit} className="px-6 py-5 flex flex-col">
+        <form onSubmit={handleSubmit} className="px-6 md:px-10 py-5 flex flex-col">
           <label className={labelCls}>{t('emailLabel')}</label>
           <input
             type="email"

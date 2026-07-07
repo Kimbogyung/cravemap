@@ -94,7 +94,7 @@ export default function ResetPasswordPage() {
     return (
       <AppLayout>
         <TopNav variant="page" title={t('title')} />
-        <div className="flex-1 flex flex-col items-center justify-center px-6 text-center">
+        <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-10 text-center">
           <div
             style={{
               width: 56, height: 56, background: '#FDE8E7', borderRadius: 16,
@@ -124,7 +124,7 @@ export default function ResetPasswordPage() {
     return (
       <AppLayout>
         <TopNav variant="page" title={t('title')} />
-        <div className="flex-1 flex flex-col items-center justify-center px-6 text-center">
+        <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-10 text-center">
           <div
             style={{
               width: 64, height: 64, background: '#E8342A', borderRadius: 18,
@@ -153,7 +153,7 @@ export default function ResetPasswordPage() {
     <AppLayout>
       <TopNav variant="page" title={t('title')} />
 
-      <div className="flex-1 px-6 py-6 flex flex-col">
+      <div className="flex-1 px-6 md:px-10 py-6 flex flex-col">
         <p className="text-[#666] text-[15px] leading-[1.6] mb-6">{t('description')}</p>
 
         <form onSubmit={handleSubmit} className="flex flex-col">

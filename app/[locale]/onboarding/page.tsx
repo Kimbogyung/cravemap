@@ -96,7 +96,7 @@ export default function OnboardingPage() {
 
   return (
     <AppLayout>
-      <div className="flex-1 flex flex-col px-7 overflow-y-auto">
+      <div className="flex-1 flex flex-col px-7 md:px-10 overflow-y-auto">
         {/* 헤더 영역 */}
         <div className="mt-12">
           <PinLogo />
