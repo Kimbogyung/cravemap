@@ -136,20 +136,21 @@ export default function LoginPage() {
         {/* 왼쪽: 브랜딩 패널 (데스크톱 전용) */}
         <div className="hidden lg:flex lg:w-1/2 lg:flex-col lg:items-center lg:justify-center bg-[#E8342A] px-16">
           <div className="flex flex-col items-center text-center max-w-[380px]">
+            {/* TopNav PinIcon과 동일한 형태, 흰색 버전 */}
             <div
               style={{
                 width: 88, height: 88,
-                background: '#fff', borderRadius: 26,
+                background: '#fff',
+                borderRadius: '50% 50% 50% 8px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 boxShadow: '0 12px 28px rgba(0,0,0,.18)',
               }}
             >
               <div
                 style={{
-                  width: 32, height: 32,
+                  width: 28, height: 28,
                   background: '#E8342A',
-                  borderRadius: '50% 50% 50% 4px',
-                  transform: 'rotate(-45deg)',
+                  borderRadius: '50%',
                 }}
               />
             </div>
