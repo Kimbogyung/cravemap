@@ -121,6 +121,7 @@
       },
       "signup": {
         "title": "Đăng ký",
+        "subtitle": "Cùng nhau tìm hương vị quê nhà",
         "emailLabel": "Email",
         "passwordLabel": "Mật khẩu",
         "confirmLabel": "Xác nhận mật khẩu",

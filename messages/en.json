@@ -121,6 +121,7 @@
       },
       "signup": {
         "title": "Sign Up",
+        "subtitle": "Find the taste of home together",
         "emailLabel": "Email",
         "passwordLabel": "Password",
         "confirmLabel": "Confirm Password",

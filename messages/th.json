@@ -121,6 +121,7 @@
       },
       "signup": {
         "title": "สมัครสมาชิก",
+        "subtitle": "มาค้นหารสชาติบ้านเกิดด้วยกัน",
         "emailLabel": "อีเมล",
         "passwordLabel": "รหัสผ่าน",
         "confirmLabel": "ยืนยันรหัสผ่าน",

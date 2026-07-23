@@ -121,6 +121,7 @@
       },
       "signup": {
         "title": "회원가입",
+        "subtitle": "고향의 맛을 함께 찾아요",
         "emailLabel": "이메일",
         "passwordLabel": "비밀번호",
         "confirmLabel": "비밀번호 확인",

@@ -121,6 +121,7 @@
       },
       "signup": {
         "title": "新規登録",
+        "subtitle": "故郷の味を一緒に探しましょう",
         "emailLabel": "メールアドレス",
         "passwordLabel": "パスワード",
         "confirmLabel": "パスワード確認",

@@ -121,6 +121,7 @@
       },
       "signup": {
         "title": "注册",
+        "subtitle": "一起寻找家乡的味道",
         "emailLabel": "邮箱",
         "passwordLabel": "密码",
         "confirmLabel": "确认密码",
