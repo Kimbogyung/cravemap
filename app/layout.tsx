@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { Analytics } from '@vercel/analytics/react'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -14,6 +15,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body suppressHydrationWarning>
         {children}
         <Analytics />
+        <GoogleAnalytics gaId="G-X0T5JCWS8G" />
       </body>
     </html>
   )
