@@ -1,0 +1,205 @@
+{
+    "common": {
+      "nav": {
+        "logo": "CraveMap",
+        "report": "Laporkan",
+        "mypage": "Halaman Saya",
+        "login": "Masuk",
+        "logout": "Keluar"
+      },
+      "button": {
+        "confirm": "Konfirmasi",
+        "cancel": "Batal",
+        "close": "Tutup",
+        "retry": "Coba Lagi",
+        "submit": "Kirim",
+        "delete": "Hapus",
+        "save": "Simpan",
+        "login": "Masuk"
+      }
+    },
+    "map": {
+      "loading": "Memuat data toko...",
+      "loadError": "Gagal memuat data toko. Silakan coba lagi nanti.",
+      "mapLoadError": "Gagal memuat peta. Silakan muat ulang halaman.",
+      "empty": "Belum ada toko yang terdaftar. Jadilah yang pertama melaporkan!",
+      "filter": {
+        "all": "Semua",
+        "restaurant": "🍜 Restoran",
+        "mart": "🛒 Toko Bahan Makanan"
+      },
+      "reportLoginRequired": "Anda harus masuk untuk melaporkan toko.",
+      "locationPermissionDenied": "Izin lokasi diperlukan. Silakan izinkan akses lokasi di pengaturan browser Anda.",
+      "locationNotFound": "Tidak dapat menemukan lokasi Anda saat ini."
+    },
+    "storeDetail": {
+      "category": {
+        "restaurant": "Restoran",
+        "mart": "Toko Bahan Makanan"
+      },
+      "address": "Alamat",
+      "noAddress": "Alamat tidak tersedia.",
+      "photos": "Foto",
+      "noPhotos": "Belum ada foto yang terdaftar.",
+      "reporter": "Dilaporkan oleh",
+      "reportedAt": "Dilaporkan pada",
+      "direction": "Petunjuk Arah",
+      "loadError": "Gagal memuat informasi toko."
+    },
+    "report": {
+      "title": "Laporkan Toko",
+      "field": {
+        "name": "Nama Toko",
+        "namePlaceholder": "Masukkan nama toko (maks. 50 karakter)",
+        "country": "Negara",
+        "countryPlaceholder": "Pilih negara",
+        "category": "Kategori",
+        "location": "Lokasi",
+        "addressSearch": "Cari Alamat",
+        "searchBtn": "Cari",
+        "locationHint": "Klik peta atau cari alamat untuk menentukan lokasi.",
+        "memo": "Catatan",
+        "memoPlaceholder": "Informasi tambahan (opsional, maks. 200 karakter)",
+        "photos": "Foto"
+      },
+      "photo": {
+        "upload": "Tambah Foto",
+        "limit": "Anda dapat mengunggah maksimal 3 foto."
+      },
+      "charCount": "{current}/{max}",
+      "submit": "Kirim Laporan",
+      "submitSuccess": "Terima kasih atas laporannya! Sekarang sudah tampil di peta.",
+      "error": {
+        "nameRequired": "Silakan masukkan nama toko.",
+        "countryRequired": "Silakan pilih negara.",
+        "categoryRequired": "Silakan pilih kategori.",
+        "locationRequired": "Silakan tentukan lokasi.",
+        "photosRequired": "Silakan unggah minimal satu foto.",
+        "photoSize": "Ukuran foto terlalu besar. Silakan unggah foto di bawah 1MB.",
+        "photoFormat": "Format file tidak didukung.",
+        "submitFailed": "Gagal mengirim laporan. Silakan coba lagi."
+      }
+    },
+    "community": {
+      "title": "Komentar",
+      "empty": "Belum ada komentar. Jadilah yang pertama menulis!",
+      "loginRequired": "Anda harus masuk untuk menulis komentar.",
+      "input": {
+        "placeholder": "Bagikan pendapat Anda tentang tempat ini (maks. 200 karakter)",
+        "submit": "Kirim",
+        "charCount": "{current}/200"
+      },
+      "delete": {
+        "confirmMessage": "Apakah Anda yakin ingin menghapus komentar ini?",
+        "confirmButton": "Hapus",
+        "error": "Gagal menghapus komentar. Silakan coba lagi."
+      },
+      "error": {
+        "loadFailed": "Gagal memuat komentar. Silakan coba lagi nanti.",
+        "submitFailed": "Gagal mengirim komentar. Silakan coba lagi."
+      }
+    },
+    "auth": {
+      "login": {
+        "title": "Masuk",
+        "subtitle": "Temukan cita rasa kampung halaman di dekat Anda",
+        "googleBtn": "Lanjutkan dengan Google",
+        "orDivider": "atau",
+        "emailPlaceholder": "email@example.com",
+        "passwordPlaceholder": "Kata sandi",
+        "submitBtn": "Masuk dengan Email",
+        "signupLink": "Daftar",
+        "forgotLink": "Lupa Kata Sandi",
+        "error": {
+          "invalid": "Silakan periksa email atau kata sandi Anda.",
+          "emailNotVerified": "Silakan verifikasi email Anda.",
+          "rateLimited": "Silakan coba lagi nanti.",
+          "googleUnavailable": "Masuk dengan Google tidak tersedia. Silakan gunakan email."
+        },
+        "resendEmailBtn": "Kirim ulang email verifikasi",
+        "resendSuccess": "Email verifikasi telah dikirim ulang."
+      },
+      "signup": {
+        "title": "Daftar",
+        "subtitle": "Mari temukan cita rasa kampung halaman bersama",
+        "emailLabel": "Email",
+        "passwordLabel": "Kata Sandi",
+        "confirmLabel": "Konfirmasi Kata Sandi",
+        "nicknameLabel": "Nama Panggilan",
+        "countryLabel": "Negara",
+        "emailPlaceholder": "email@example.com",
+        "passwordPlaceholder": "Kata sandi",
+        "passwordHint": "Minimal 8 karakter, kombinasi huruf dan angka",
+        "confirmPlaceholder": "Masukkan ulang kata sandi",
+        "nicknamePlaceholder": "Maksimal 20 karakter",
+        "countryPlaceholder": "Pilih",
+        "submitBtn": "Daftar",
+        "loginPrompt": "Sudah punya akun?",
+        "loginLink": "Masuk",
+        "error": {
+          "emailInvalid": "Format email tidak valid.",
+          "emailDuplicate": "Email ini sudah digunakan.",
+          "passwordShort": "Kata sandi minimal 8 karakter.",
+          "passwordPattern": "Kombinasikan huruf dan angka.",
+          "passwordMismatch": "Kata sandi tidak cocok.",
+          "nicknameRequired": "Silakan masukkan nama panggilan.",
+          "countryRequired": "Silakan pilih negara.",
+          "failed": "Pendaftaran gagal. Silakan coba lagi."
+        },
+        "verifyTitle": "Silakan verifikasi email Anda",
+        "verifyMessage": "Silakan verifikasi email Anda untuk menyelesaikan pendaftaran.",
+        "resendBtn": "Kirim ulang email verifikasi",
+        "resendCooldown": "Dapat dikirim ulang dalam {seconds} detik",
+        "resendSuccess": "Email verifikasi telah dikirim ulang."
+      },
+      "onboarding": {
+        "title": "Temukan cita rasa kampung halaman\ndi peta",
+        "subtitle": "Catat dan bagikan restoran serta toko\nbahan makanan asing dengan sesama.",
+        "nicknameLabel": "Nama Panggilan",
+        "countryLabel": "Negara",
+        "nicknamePlaceholder": "Maksimal 20 karakter",
+        "countryPlaceholder": "Pilih negara",
+        "submitBtn": "Mulai",
+        "error": {
+          "nicknameRequired": "Silakan masukkan nama panggilan.",
+          "countryRequired": "Silakan pilih negara.",
+          "failed": "Gagal menyimpan profil. Silakan coba lagi."
+        }
+      },
+      "forgotPassword": {
+        "title": "Atur Ulang Kata Sandi",
+        "description": "Masukkan alamat email Anda dan kami akan\nmengirimkan tautan untuk mengatur ulang kata sandi.",
+        "emailLabel": "Email",
+        "emailPlaceholder": "email@example.com",
+        "submitBtn": "Kirim Tautan Atur Ulang",
+        "successMessage": "Tautan atur ulang kata sandi telah dikirim ke email Anda."
+      },
+      "resetPassword": {
+        "title": "Buat Kata Sandi Baru",
+        "description": "Masukkan kata sandi baru Anda.",
+        "newPasswordLabel": "Kata Sandi Baru",
+        "newPasswordPlaceholder": "Minimal 8 karakter, kombinasi huruf dan angka",
+        "confirmLabel": "Konfirmasi Kata Sandi",
+        "confirmPlaceholder": "Masukkan ulang kata sandi baru",
+        "submitBtn": "Ubah Kata Sandi",
+        "successTitle": "Kata sandi berhasil diubah!",
+        "successMessage": "Silakan masuk dengan kata sandi baru Anda.",
+        "loginBtn": "Ke Halaman Masuk",
+        "error": {
+          "passwordShort": "Kata sandi minimal 8 karakter.",
+          "passwordPattern": "Kombinasikan huruf dan angka.",
+          "passwordMismatch": "Kata sandi tidak cocok.",
+          "failed": "Gagal mengubah kata sandi. Silakan coba lagi.",
+          "invalidLink": "Tautan tidak valid. Silakan minta pengaturan ulang kata sandi lagi."
+        }
+      },
+      "sessionExpired": "Sesi Anda telah berakhir. Silakan masuk kembali."
+    },
+    "mypage": {
+      "title": "Halaman Saya",
+      "nicknameLabel": "Nama Panggilan",
+      "countryLabel": "Negara",
+      "logoutBtn": "Keluar",
+      "unknown": "Tidak diketahui"
+    }
+}

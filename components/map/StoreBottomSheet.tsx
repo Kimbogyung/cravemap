@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import { useRouter } from 'next/navigation'
 import { format } from 'date-fns'
-import { ko, enUS, zhCN, vi as viLocale, ja, th as thLocale } from 'date-fns/locale'
+import { ko, enUS, zhCN, vi as viLocale, ja, th as thLocale, id as idLocale } from 'date-fns/locale'
 import type { Locale } from 'date-fns'
 import { useAuthStore } from '../../store/authStore'
 import Toast from '../ui/Toast'
@@ -73,6 +73,7 @@ const DATE_LOCALES: Record<string, Locale> = {
   vi: viLocale,
   ja,
   th: thLocale,
+  id: idLocale,
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────

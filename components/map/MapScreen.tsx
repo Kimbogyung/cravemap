@@ -24,6 +24,9 @@ const MARKER_COLORS: Record<string, string> = {
   CN: '#DE2910',
   VN: '#FFCD00',
   JP: '#2B4C8C',
+  // 인도네시아 국기색(적색)은 CN과 구분이 안 되어 별도 색상 사용
+  ID: '#8E44AD',
+  ETC: '#7F8C8D',
   DEFAULT: '#7F8C8D',
 }
 

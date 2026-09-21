@@ -13,6 +13,7 @@ const LOCALES = [
   { code: 'vi', label: 'Tiếng Việt' },
   { code: 'ja', label: '日本語' },
   { code: 'th', label: 'ภาษาไทย' },
+  { code: 'id', label: '🇮🇩 Bahasa Indonesia' },
 ]
 
 function PinIcon() {
