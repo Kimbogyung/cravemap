@@ -13,7 +13,7 @@ const LOCALES = [
   { code: 'vi', label: 'Tiếng Việt' },
   { code: 'ja', label: '日本語' },
   { code: 'th', label: 'ภาษาไทย' },
-  { code: 'id', label: '🇮🇩 Bahasa Indonesia' },
+  { code: 'id', label: 'Bahasa Indonesia' },
 ]
 
 function PinIcon() {
@@ -146,7 +146,7 @@ export default function TopNav({ variant = 'logo', title }: TopNavProps) {
           {langOpen && (
             <>
               <div className="fixed inset-0 z-40" onClick={() => setLangOpen(false)} />
-              <div className="absolute right-0 top-[44px] z-50 bg-white rounded-[14px] shadow-[0_4px_24px_rgba(0,0,0,0.13)] overflow-hidden min-w-[150px] border border-[#F0F0F0]">
+              <div className="absolute right-0 top-[44px] z-50 bg-white rounded-[14px] shadow-[0_4px_24px_rgba(0,0,0,0.13)] overflow-y-auto overscroll-contain max-h-[calc(100dvh-120px)] min-w-[150px] border border-[#F0F0F0]">
                 {LOCALES.map(({ code, label }) => (
                   <button
                     key={code}
