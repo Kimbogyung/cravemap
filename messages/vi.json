@@ -151,7 +151,12 @@
         "verifyMessage": "Vui lòng xác minh email để hoàn tất đăng ký.",
         "resendBtn": "Gửi lại email xác minh",
         "resendCooldown": "Có thể gửi lại sau {seconds}s",
-        "resendSuccess": "Đã gửi lại email xác minh."
+        "resendSuccess": "Đã gửi lại email xác minh.",
+        "duplicate": {
+          "message": "Email này đã được đăng ký.",
+          "loginBtn": "Đăng nhập",
+          "forgotBtn": "Bạn quên mật khẩu?"
+        }
       },
       "onboarding": {
         "title": "Tìm hương vị quê hương\ntrên bản đồ",

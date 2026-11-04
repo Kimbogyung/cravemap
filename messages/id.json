@@ -151,7 +151,12 @@
         "verifyMessage": "Silakan verifikasi email Anda untuk menyelesaikan pendaftaran.",
         "resendBtn": "Kirim ulang email verifikasi",
         "resendCooldown": "Dapat dikirim ulang dalam {seconds} detik",
-        "resendSuccess": "Email verifikasi telah dikirim ulang."
+        "resendSuccess": "Email verifikasi telah dikirim ulang.",
+        "duplicate": {
+          "message": "Email ini sudah terdaftar.",
+          "loginBtn": "Masuk",
+          "forgotBtn": "Lupa kata sandi?"
+        }
       },
       "onboarding": {
         "title": "Temukan cita rasa kampung halaman\ndi peta",

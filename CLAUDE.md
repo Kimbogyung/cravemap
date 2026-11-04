@@ -19,6 +19,7 @@
 - 국가명: DB countries.name_i18n[locale]에서 동적 조회
 - 카테고리명: /messages/{locale}.json 번역 파일에서 관리
 - 가게이름/주소/메모: 번역 없이 원문 그대로 표시
+- users 테이블은 email 컬럼 접근이 DB 권한으로 막혀 있다. users를 조회할 때 select('*')를 쓰지 말고 컬럼을 명시한다(id, nickname, country_code만 가능). 내 이메일은 세션의 user.email에서 가져온다.
 
 ### 인증
 - 보호 라우트: /report, /mypage → 미들웨어에서 세션 확인

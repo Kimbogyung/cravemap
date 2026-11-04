@@ -151,7 +151,12 @@
         "verifyMessage": "登録を完了するためにメールを認証してください。",
         "resendBtn": "認証メールを再送",
         "resendCooldown": "{seconds}秒後に再送可能",
-        "resendSuccess": "認証メールを再送しました。"
+        "resendSuccess": "認証メールを再送しました。",
+        "duplicate": {
+          "message": "このメールアドレスは既に登録されています。",
+          "loginBtn": "ログインする",
+          "forgotBtn": "パスワードをお忘れですか？"
+        }
       },
       "onboarding": {
         "title": "故郷の味を\n地図で見つけよう",

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { useTranslations, useLocale } from 'next-intl'
 import { createClient } from '../../../lib/supabase'
 import AppLayout from '../../../components/layout/AppLayout'
@@ -10,8 +11,9 @@ import Toast from '../../../components/ui/Toast'
 export default function ForgotPasswordPage() {
   const t = useTranslations('auth.forgotPassword')
   const locale = useLocale()
+  const searchParams = useSearchParams()
 
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState(searchParams.get('email') ?? '')
   const [loading, setLoading] = useState(false)
   const [sent, setSent] = useState(false)
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null)

@@ -32,6 +32,8 @@ export default function SignupPage() {
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [loading, setLoading] = useState(false)
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null)
+  // 이미 가입된 이메일 안내 (signUp 시점의 이메일 저장)
+  const [duplicateEmail, setDuplicateEmail] = useState<string | null>(null)
 
   // 이메일 인증 대기 화면 상태
   const [verifyStep, setVerifyStep] = useState(false)
@@ -69,16 +71,25 @@ export default function SignupPage() {
     const errs = validate()
     if (Object.keys(errs).length) { setErrors(errs); return }
     setErrors({})
+    setDuplicateEmail(null)
     setLoading(true)
 
-    const { data, error } = await supabase.auth.signUp({ email, password })
+    const submittedEmail = email.trim()
+    const { data, error } = await supabase.auth.signUp({ email: submittedEmail, password })
 
     if (error) {
       if (error.message.toLowerCase().includes('already registered')) {
-        setErrors({ email: t('error.emailDuplicate') })
+        setDuplicateEmail(submittedEmail)
       } else {
         setToast({ message: t('error.failed'), type: 'error' })
       }
+      setLoading(false)
+      return
+    }
+
+    // 이미 가입된 이메일: Supabase가 오류 없이 identities: [] 인 user를 돌려줌
+    if (data.user && data.user.identities?.length === 0) {
+      setDuplicateEmail(submittedEmail)
       setLoading(false)
       return
     }
@@ -184,12 +195,31 @@ export default function SignupPage() {
             <input
               type="email"
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={e => { setEmail(e.target.value); setDuplicateEmail(null) }}
               placeholder={t('emailPlaceholder')}
               className={inputCls}
               autoComplete="email"
             />
             {errors.email && <p className={errCls}>{errors.email}</p>}
+            {duplicateEmail && (
+              <div className="mt-2 rounded-[14px] bg-[#FFF1F0] px-4 py-3">
+                <p className="text-[13px] text-[#E8342A] font-semibold">{t('duplicate.message')}</p>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  <Link
+                    href={`/${locale}/login?email=${encodeURIComponent(duplicateEmail)}`}
+                    className="h-[36px] px-4 rounded-full bg-[#E8342A] text-white text-[13px] font-semibold flex items-center"
+                  >
+                    {t('duplicate.loginBtn')}
+                  </Link>
+                  <Link
+                    href={`/${locale}/forgot-password?email=${encodeURIComponent(duplicateEmail)}`}
+                    className="h-[36px] px-4 rounded-full border border-[#E8342A] text-[#E8342A] text-[13px] font-semibold flex items-center"
+                  >
+                    {t('duplicate.forgotBtn')}
+                  </Link>
+                </div>
+              </div>
+            )}
 
             <label className={labelCls}>{t('passwordLabel')}</label>
             <input

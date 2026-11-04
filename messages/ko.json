@@ -151,7 +151,12 @@
         "verifyMessage": "가입을 완료하려면 이메일을 인증해주세요.",
         "resendBtn": "인증 메일 재발송",
         "resendCooldown": "{seconds}초 후 재발송 가능",
-        "resendSuccess": "인증 메일을 재발송했어요."
+        "resendSuccess": "인증 메일을 재발송했어요.",
+        "duplicate": {
+          "message": "이미 가입된 이메일입니다.",
+          "loginBtn": "로그인하기",
+          "forgotBtn": "비밀번호를 잊으셨나요?"
+        }
       },
       "onboarding": {
         "title": "고향의 맛을\n지도에서 찾아보세요",

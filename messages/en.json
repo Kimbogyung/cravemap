@@ -151,7 +151,12 @@
         "verifyMessage": "Please verify your email to complete registration.",
         "resendBtn": "Resend verification email",
         "resendCooldown": "Resend available in {seconds}s",
-        "resendSuccess": "Verification email resent."
+        "resendSuccess": "Verification email resent.",
+        "duplicate": {
+          "message": "This email is already registered.",
+          "loginBtn": "Sign In",
+          "forgotBtn": "Forgot your password?"
+        }
       },
       "onboarding": {
         "title": "Find the taste of home\non the map",
