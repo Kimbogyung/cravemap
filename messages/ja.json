@@ -201,5 +201,101 @@
     "countryLabel": "国",
     "logoutBtn": "ログアウト",
     "unknown": "不明"
+    },
+    "about": {
+      "hero": {
+        "badge": "留学生のためのグルメマップ",
+        "title": "ふるさとの味を<br></br><accent>マップで</accent>見つけよう",
+        "subtitle": "異国の地で恋しくなる、あの味。<br></br>留学生みんなでつくるグルメマップです。",
+        "ctaPrimary": "さっそく始める",
+        "ctaSecondary": "機能を見る"
+      },
+      "problem": {
+        "eyebrow": "PROBLEM",
+        "title": "慣れない土地で、ふるさとの味が恋しくなったら",
+        "items": {
+          "where": {
+            "title": "どこで食べられるかわからない",
+            "desc": "母国の料理を探しても、ネットの情報はバラバラで、なかなかたどり着けません。"
+          },
+          "sameCountry": {
+            "title": "同郷の人のお店が見つからない",
+            "desc": "同じ国の人が営む、本場の味のお店はどこにあるんだろう？"
+          },
+          "alone": {
+            "title": "ひとりで探すのは大変",
+            "desc": "頼れる情報もないまま、ひとりで歩き回って探すのはもうヘトヘト。"
+          }
+        }
+      },
+      "solution": {
+        "eyebrow": "SOLUTION",
+        "title": "留学生どうしでつくる<br></br><accent>ふるさとの味マップ</accent>",
+        "subtitle": "本場の味が楽しめるお店、同じ国の人が営むお店。<br></br>ふるさとを想う気持ちを、留学生どうしでシェアしよう。",
+        "items": {
+          "discover": {
+            "title": "本場の味を発見",
+            "desc": "母国の味をそのまま楽しめるお店を、マップですぐに見つけられます。"
+          },
+          "sameNationality": {
+            "title": "同郷の人のお店",
+            "desc": "国フィルターで、同じ国の人が営むお店をかんたんに探せます。"
+          },
+          "share": {
+            "title": "留学生どうしで情報シェア",
+            "desc": "ふるさとが恋しい気持ちがわかる仲間と、おすすめのお店や口コミをシェアしよう。"
+          }
+        }
+      },
+      "features": {
+        "eyebrow": "FEATURES",
+        "title": "主な機能",
+        "items": {
+          "multilingual": {
+            "title": "多言語対応",
+            "desc": "韓国語・英語・中国語・ベトナム語・日本語に対応しています。",
+            "descLine1": "韓国語・英語・中国語・",
+            "descLine2": "ベトナム語・日本語に対応。"
+          },
+          "map": {
+            "title": "マップで探す",
+            "desc": "国別・カテゴリ別のフィルターで、行きたいお店がすぐに見つかります。",
+            "descLine1": "国別・カテゴリ別フィルターで",
+            "descLine2": "お店がすぐ見つかる。"
+          },
+          "report": {
+            "title": "お店を投稿",
+            "desc": "見つけたお店を、ほかの留学生にシェアしよう。",
+            "descLine1": "見つけたお店を",
+            "descLine2": "ほかの留学生にシェア。"
+          },
+          "comments": {
+            "title": "みんなの口コミ",
+            "desc": "お店の正直なレビューを残して、仲間と交流しよう。",
+            "descLine1": "正直なレビューを残して、",
+            "descLine2": "仲間と交流しよう。"
+          }
+        }
+      },
+      "mockup": {
+        "filterAll": "すべて",
+        "countryCN": "中国",
+        "countryVN": "ベトナム",
+        "countryJP": "日本",
+        "categoryRestaurant": "レストラン",
+        "storeName": "北京羊肉串",
+        "storeAddress": "ソウル市永登浦区大林路123",
+        "commentCount": "{count, plural, other {コメント #件}}",
+        "comment1Initial": "ゆ",
+        "comment1Author": "ゆうき",
+        "comment1Content": "羊肉串がほんとに美味しい！👍",
+        "comment2Content": "値段もお手頃で最高です。",
+        "commentPlaceholder": "コメントを入力"
+      },
+      "cta": {
+        "title": "今すぐ、ふるさとの味を<br></br>見つけよう",
+        "subtitle": "留学生のみんなで、マップを完成させよう。",
+        "button": "CraveMapを始める"
+      }
     }
 }

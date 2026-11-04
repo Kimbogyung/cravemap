@@ -201,5 +201,101 @@
       "countryLabel": "Negara",
       "logoutBtn": "Keluar",
       "unknown": "Tidak diketahui"
+    },
+    "about": {
+      "hero": {
+        "badge": "Peta kuliner untuk mahasiswa internasional",
+        "title": "Temukan rasa kampung halaman<br></br><accent>di peta</accent>",
+        "subtitle": "Kangen masakan rumah di negeri orang?<br></br>Inilah peta kuliner yang dibuat bersama oleh mahasiswa internasional.",
+        "ctaPrimary": "Mulai sekarang",
+        "ctaSecondary": "Lihat fitur"
+      },
+      "problem": {
+        "eyebrow": "PROBLEM",
+        "title": "Saat kangen rasa rumah di negeri orang",
+        "items": {
+          "where": {
+            "title": "Nggak tahu harus makan di mana",
+            "desc": "Sudah cari ke mana-mana, tapi info yang tersebar bikin susah tahu harus ke mana."
+          },
+          "sameCountry": {
+            "title": "Susah cari toko sesama perantau",
+            "desc": "Di mana ya toko milik orang senegara yang menyajikan rasa asli kampung halaman?"
+          },
+          "alone": {
+            "title": "Capek kalau cari sendirian",
+            "desc": "Tanpa info yang bisa dipercaya, keliling mencari sendirian benar-benar melelahkan."
+          }
+        }
+      },
+      "solution": {
+        "eyebrow": "SOLUTION",
+        "title": "Dibuat bersama oleh sesama mahasiswa:<br></br><accent>peta rasa kampung halaman</accent>",
+        "subtitle": "Restoran dengan rasa asli, toko milik orang senegara,<br></br>dan tempat berbagi rasa rindu rumah bersama sesama mahasiswa.",
+        "items": {
+          "discover": {
+            "title": "Temukan rasa asli",
+            "desc": "Cari restoran dengan cita rasa asli kampung halaman, langsung di peta."
+          },
+          "sameNationality": {
+            "title": "Toko milik orang senegara",
+            "desc": "Pakai filter negara untuk menemukan toko milik orang senegara dengan mudah."
+          },
+          "share": {
+            "title": "Berbagi antar mahasiswa",
+            "desc": "Bagikan tempat favorit dan ulasan dengan teman yang sama-sama kangen rumah."
+          }
+        }
+      },
+      "features": {
+        "eyebrow": "FEATURES",
+        "title": "Fitur utama",
+        "items": {
+          "multilingual": {
+            "title": "Multibahasa",
+            "desc": "Tersedia dalam bahasa Korea, Inggris, Mandarin, Vietnam, dan Jepang.",
+            "descLine1": "Tersedia dalam bahasa Korea,",
+            "descLine2": "Inggris, Mandarin, Vietnam, Jepang."
+          },
+          "map": {
+            "title": "Jelajahi lewat peta",
+            "desc": "Saring berdasarkan negara dan kategori untuk menemukan tempat yang pas di peta.",
+            "descLine1": "Saring per negara dan kategori,",
+            "descLine2": "temukan tempat yang pas."
+          },
+          "report": {
+            "title": "Bagikan tempat",
+            "desc": "Nemu tempat enak? Bagikan ke mahasiswa internasional lainnya.",
+            "descLine1": "Nemu tempat enak? Bagikan ke",
+            "descLine2": "mahasiswa lainnya."
+          },
+          "comments": {
+            "title": "Ulasan komunitas",
+            "desc": "Tulis ulasan jujur dan terhubung dengan teman-teman di sekitarmu.",
+            "descLine1": "Tulis ulasan jujur dan",
+            "descLine2": "terhubung dengan teman."
+          }
+        }
+      },
+      "mockup": {
+        "filterAll": "Semua",
+        "countryCN": "Tiongkok",
+        "countryVN": "Vietnam",
+        "countryJP": "Jepang",
+        "categoryRestaurant": "Restoran",
+        "storeName": "Sate Kambing Beijing",
+        "storeAddress": "Daerim-ro 123, Yeongdeungpo-gu, Seoul",
+        "commentCount": "{count, plural, other {# komentar}}",
+        "comment1Initial": "R",
+        "comment1Author": "Rizky",
+        "comment1Content": "Sate kambingnya enak banget! 👍",
+        "comment2Content": "Harganya terjangkau, mantap!",
+        "commentPlaceholder": "Tulis komentar"
+      },
+      "cta": {
+        "title": "Temukan rasa kampung halaman<br></br>sekarang juga",
+        "subtitle": "Yuk, lengkapi peta ini bersama mahasiswa lainnya.",
+        "button": "Mulai CraveMap"
+      }
     }
 }

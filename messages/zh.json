@@ -201,5 +201,101 @@
     "countryLabel": "国家",
     "logoutBtn": "退出登录",
     "unknown": "未知"
+    },
+    "about": {
+      "hero": {
+        "badge": "专为留学生打造的美食地图",
+        "title": "家乡的味道<br></br><accent>在地图上</accent>就能找到",
+        "subtitle": "身在异乡，想念那一口家乡味？<br></br>来看留学生们亲手打造的美食地图。",
+        "ctaPrimary": "立即开始",
+        "ctaSecondary": "了解功能"
+      },
+      "problem": {
+        "eyebrow": "PROBLEM",
+        "title": "在异国他乡，想念家乡味的时候",
+        "items": {
+          "where": {
+            "title": "不知道去哪儿吃",
+            "desc": "到处搜寻家乡菜，可网上信息零零散散，很难找到靠谱的地方。"
+          },
+          "sameCountry": {
+            "title": "找不到老乡开的店",
+            "desc": "哪里有同胞开的店、能吃到地道的家乡味？完全没头绪。"
+          },
+          "alone": {
+            "title": "一个人找太辛苦",
+            "desc": "没有可靠的信息，只能自己一家家去试，实在太累了。"
+          }
+        }
+      },
+      "solution": {
+        "eyebrow": "SOLUTION",
+        "title": "留学生们一起打造的<br></br><accent>家乡美食地图</accent>",
+        "subtitle": "地道家乡味的餐厅、老乡经营的小店，<br></br>留学生们在这里分享彼此的思乡之味。",
+        "items": {
+          "discover": {
+            "title": "发现地道家乡菜",
+            "desc": "在地图上直接找到能吃到正宗家乡味的餐厅。"
+          },
+          "sameNationality": {
+            "title": "老乡开的店",
+            "desc": "用国家筛选，轻松找到同胞经营的店铺。"
+          },
+          "share": {
+            "title": "留学生互相分享",
+            "desc": "和同样想家的留学生们一起分享好店和真实评价。"
+          }
+        }
+      },
+      "features": {
+        "eyebrow": "FEATURES",
+        "title": "主要功能",
+        "items": {
+          "multilingual": {
+            "title": "多语言支持",
+            "desc": "支持韩语、英语、中文、越南语、日语。",
+            "descLine1": "支持韩语、英语、中文、",
+            "descLine2": "越南语和日语。"
+          },
+          "map": {
+            "title": "地图探索",
+            "desc": "按国家、类别筛选，在地图上快速找到想去的店。",
+            "descLine1": "按国家、类别筛选，",
+            "descLine2": "快速找到想去的店。"
+          },
+          "report": {
+            "title": "推荐好店",
+            "desc": "把你发现的好店分享给其他留学生。",
+            "descLine1": "把你发现的好店",
+            "descLine2": "分享给其他留学生。"
+          },
+          "comments": {
+            "title": "社区评论",
+            "desc": "留下真实评价，和身边的同学交流。",
+            "descLine1": "留下真实的评价，",
+            "descLine2": "和身边的同学交流。"
+          }
+        }
+      },
+      "mockup": {
+        "filterAll": "全部",
+        "countryCN": "中国",
+        "countryVN": "越南",
+        "countryJP": "日本",
+        "categoryRestaurant": "餐厅",
+        "storeName": "老北京羊肉串",
+        "storeAddress": "首尔永登浦区大林路123号",
+        "commentCount": "{count, plural, other {#条评论}}",
+        "comment1Initial": "明",
+        "comment1Author": "小明",
+        "comment1Content": "羊肉串真的超好吃！👍",
+        "comment2Content": "价格实惠，味道一流。",
+        "commentPlaceholder": "写下你的评论"
+      },
+      "cta": {
+        "title": "现在就去寻找<br></br>家乡的味道吧",
+        "subtitle": "和留学生们一起，把这张地图变得更完整。",
+        "button": "开始使用 CraveMap"
+      }
     }
 }

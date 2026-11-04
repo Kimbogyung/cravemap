@@ -201,5 +201,101 @@
     "countryLabel": "Quốc gia",
     "logoutBtn": "Đăng xuất",
     "unknown": "Không rõ"
+    },
+    "about": {
+      "hero": {
+        "badge": "Bản đồ ẩm thực cho du học sinh",
+        "title": "Tìm hương vị quê nhà<br></br><accent>ngay trên bản đồ</accent>",
+        "subtitle": "Nơi đất khách, nhớ món ăn quê hương?<br></br>Bản đồ ẩm thực do chính du học sinh cùng xây dựng.",
+        "ctaPrimary": "Bắt đầu ngay",
+        "ctaSecondary": "Xem tính năng"
+      },
+      "problem": {
+        "eyebrow": "PROBLEM",
+        "title": "Khi nơi đất khách, bạn nhớ vị quê nhà",
+        "items": {
+          "where": {
+            "title": "Không biết ăn ở đâu",
+            "desc": "Tìm mãi món ăn quê hương, nhưng thông tin rời rạc khiến bạn chẳng biết nên đi đâu."
+          },
+          "sameCountry": {
+            "title": "Khó tìm quán của người đồng hương",
+            "desc": "Quán do người cùng quê mở, nấu đúng vị quê nhà, rốt cuộc nằm ở đâu?"
+          },
+          "alone": {
+            "title": "Tự đi tìm thật mệt mỏi",
+            "desc": "Không có thông tin đáng tin cậy, một mình lặn lội đi tìm thật quá vất vả."
+          }
+        }
+      },
+      "solution": {
+        "eyebrow": "SOLUTION",
+        "title": "Du học sinh cùng nhau tạo nên<br></br><accent>bản đồ hương vị quê nhà</accent>",
+        "subtitle": "Quán ăn đậm vị quê hương, cửa hàng do người đồng hương kinh doanh,<br></br>nơi du học sinh cùng chia sẻ nỗi nhớ nhà.",
+        "items": {
+          "discover": {
+            "title": "Khám phá quán chuẩn vị",
+            "desc": "Tìm ngay trên bản đồ những quán ăn mang đúng hương vị quê nhà."
+          },
+          "sameNationality": {
+            "title": "Quán người đồng hương",
+            "desc": "Dùng bộ lọc quốc gia để dễ dàng tìm quán do người cùng quê kinh doanh."
+          },
+          "share": {
+            "title": "Du học sinh chia sẻ",
+            "desc": "Cùng những người hiểu nỗi nhớ nhà chia sẻ quán ngon và đánh giá thật."
+          }
+        }
+      },
+      "features": {
+        "eyebrow": "FEATURES",
+        "title": "Tính năng chính",
+        "items": {
+          "multilingual": {
+            "title": "Đa ngôn ngữ",
+            "desc": "Hỗ trợ tiếng Hàn, Anh, Trung, Việt và Nhật.",
+            "descLine1": "Hỗ trợ tiếng Hàn, Anh, Trung,",
+            "descLine2": "Việt và Nhật."
+          },
+          "map": {
+            "title": "Tìm trên bản đồ",
+            "desc": "Lọc theo quốc gia và danh mục để tìm quán trên bản đồ trong tích tắc.",
+            "descLine1": "Lọc theo quốc gia, danh mục để",
+            "descLine2": "tìm quán trong tích tắc."
+          },
+          "report": {
+            "title": "Chia sẻ quán ngon",
+            "desc": "Tìm được quán ngon? Chia sẻ ngay với các du học sinh khác.",
+            "descLine1": "Tìm được quán ngon? Chia sẻ",
+            "descLine2": "với các du học sinh khác."
+          },
+          "comments": {
+            "title": "Bình luận cộng đồng",
+            "desc": "Để lại đánh giá thật lòng và kết nối với bạn bè quanh bạn.",
+            "descLine1": "Để lại đánh giá thật lòng",
+            "descLine2": "và kết nối với mọi người."
+          }
+        }
+      },
+      "mockup": {
+        "filterAll": "Tất cả",
+        "countryCN": "Trung Quốc",
+        "countryVN": "Việt Nam",
+        "countryJP": "Nhật Bản",
+        "categoryRestaurant": "Quán ăn",
+        "storeName": "Quán Thịt Cừu Bắc Kinh",
+        "storeAddress": "123 Daerim-ro, Yeongdeungpo-gu, Seoul",
+        "commentCount": "{count, plural, other {# bình luận}}",
+        "comment1Initial": "L",
+        "comment1Author": "Linh",
+        "comment1Content": "Xiên thịt cừu ngon tuyệt! 👍",
+        "comment2Content": "Giá hợp lý mà ngon tuyệt.",
+        "commentPlaceholder": "Viết bình luận"
+      },
+      "cta": {
+        "title": "Tìm hương vị quê nhà<br></br>ngay hôm nay",
+        "subtitle": "Cùng các du học sinh hoàn thiện tấm bản đồ này nhé.",
+        "button": "Bắt đầu với CraveMap"
+      }
     }
 }
