@@ -1,20 +1,10 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
-import { useRouter, usePathname } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
 import { useAuthStore } from '../../store/authStore'
-
-const LOCALES = [
-  { code: 'ko', label: '한국어' },
-  { code: 'en', label: 'English' },
-  { code: 'ja', label: '日本語' },
-  { code: 'zh', label: '中文' },
-  { code: 'vi', label: 'Tiếng Việt' },
-  { code: 'th', label: 'ภาษาไทย' },
-  { code: 'id', label: 'Bahasa Indonesia' },
-]
+import LanguageSwitcher from './LanguageSwitcher'
 
 function PinIcon() {
   return (
@@ -33,23 +23,6 @@ function PinIcon() {
         style={{ width: 7, height: 7, background: '#fff', borderRadius: '50%' }}
       />
     </div>
-  )
-}
-
-function GlobeIcon() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      viewBox="0 0 24 24"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-      <path d="M2 12h20" />
-    </svg>
   )
 }
 
@@ -91,19 +64,9 @@ interface TopNavProps {
 
 export default function TopNav({ variant = 'logo', title }: TopNavProps) {
   const router = useRouter()
-  const pathname = usePathname()
   const locale = useLocale()
   const t = useTranslations('common.nav')
   const { user } = useAuthStore()
-  const [langOpen, setLangOpen] = useState(false)
-
-  function changeLocale(newLocale: string) {
-    try { localStorage.setItem('cravemap_locale', newLocale) } catch {}
-    const segments = pathname.split('/')
-    segments[1] = newLocale
-    router.push(segments.join('/') || `/${newLocale}`)
-    setLangOpen(false)
-  }
 
   if (variant === 'page') {
     return (
@@ -134,36 +97,7 @@ export default function TopNav({ variant = 'logo', title }: TopNavProps) {
 
       <div className="flex gap-2 items-center">
         {/* 언어 전환 */}
-        <div className="relative">
-          <button
-            onClick={() => setLangOpen((v) => !v)}
-            className="w-10 h-10 rounded-full bg-[#F5F5F5] flex items-center justify-center text-[#1A1A1A]"
-            aria-label="언어 선택"
-          >
-            <GlobeIcon />
-          </button>
-
-          {langOpen && (
-            <>
-              <div className="fixed inset-0 z-40" onClick={() => setLangOpen(false)} />
-              <div className="absolute right-0 top-[44px] z-50 bg-white rounded-[14px] shadow-[0_4px_24px_rgba(0,0,0,0.13)] overflow-y-auto overscroll-contain max-h-[calc(100dvh-120px)] min-w-[150px] border border-[#F0F0F0]">
-                {LOCALES.map(({ code, label }) => (
-                  <button
-                    key={code}
-                    onClick={() => changeLocale(code)}
-                    className={`w-full px-4 py-[11px] text-left text-[14px] border-b border-[#F5F5F5] last:border-0 ${
-                      code === locale
-                        ? 'text-[#E8342A] font-semibold bg-[#FFF5F5]'
-                        : 'text-[#1A1A1A] hover:bg-[#F8F8F8]'
-                    }`}
-                  >
-                    {label}
-                  </button>
-                ))}
-              </div>
-            </>
-          )}
-        </div>
+        <LanguageSwitcher />
         {user ? (
           <Link
             href={`/${locale}/mypage`}

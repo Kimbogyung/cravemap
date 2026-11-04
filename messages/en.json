@@ -201,5 +201,101 @@
     "countryLabel": "Country",
     "logoutBtn": "Logout",
     "unknown": "Unknown"
+    },
+    "about": {
+      "hero": {
+        "badge": "A food map for international students",
+        "title": "Find a taste of home<br></br><accent>on the map</accent>",
+        "subtitle": "The flavors you miss, far from home —<br></br>on a food map built by international students.",
+        "ctaPrimary": "Get started",
+        "ctaSecondary": "See features"
+      },
+      "problem": {
+        "eyebrow": "PROBLEM",
+        "title": "When you're craving home in a new country",
+        "items": {
+          "where": {
+            "title": "No idea where to find it",
+            "desc": "You keep searching for your home cuisine, but scattered info online makes it hard to know where to go."
+          },
+          "sameCountry": {
+            "title": "Hard to find places run by your community",
+            "desc": "Where are the shops run by people from your country, serving the real taste of home?"
+          },
+          "alone": {
+            "title": "Searching alone is exhausting",
+            "desc": "Wandering from place to place without trustworthy info just wears you out."
+          }
+        }
+      },
+      "solution": {
+        "eyebrow": "SOLUTION",
+        "title": "Built together by international students:<br></br><accent>a map of home flavors</accent>",
+        "subtitle": "Restaurants with authentic home flavors, shops run by people from your country,<br></br>and a community of students sharing what they miss most.",
+        "items": {
+          "discover": {
+            "title": "Discover authentic spots",
+            "desc": "Find restaurants that serve the real taste of home, right on the map."
+          },
+          "sameNationality": {
+            "title": "Run by your community",
+            "desc": "Use the country filter to easily find shops run by people from your home country."
+          },
+          "share": {
+            "title": "Shared by fellow students",
+            "desc": "Swap favorite spots and reviews with students who know exactly what homesick feels like."
+          }
+        }
+      },
+      "features": {
+        "eyebrow": "FEATURES",
+        "title": "Key features",
+        "items": {
+          "multilingual": {
+            "title": "Multilingual",
+            "desc": "Available in Korean, English, Chinese, Vietnamese, and Japanese.",
+            "descLine1": "Available in Korean, English, Chinese,",
+            "descLine2": "Vietnamese, and Japanese."
+          },
+          "map": {
+            "title": "Map-based search",
+            "desc": "Filter by country and category to find the right place on the map in seconds.",
+            "descLine1": "Filter by country and category to find",
+            "descLine2": "the right place in seconds."
+          },
+          "report": {
+            "title": "Add a spot",
+            "desc": "Found a great place? Share it with other international students.",
+            "descLine1": "Found a great place? Share it with",
+            "descLine2": "other international students."
+          },
+          "comments": {
+            "title": "Community reviews",
+            "desc": "Leave honest reviews and connect with students nearby.",
+            "descLine1": "Leave honest reviews and connect",
+            "descLine2": "with students nearby."
+          }
+        }
+      },
+      "mockup": {
+        "filterAll": "All",
+        "countryCN": "China",
+        "countryVN": "Vietnam",
+        "countryJP": "Japan",
+        "categoryRestaurant": "Restaurant",
+        "storeName": "Beijing Yangrou",
+        "storeAddress": "123 Daerim-ro, Yeongdeungpo-gu, Seoul",
+        "commentCount": "{count, plural, one {# comment} other {# comments}}",
+        "comment1Initial": "M",
+        "comment1Author": "Minsu",
+        "comment1Content": "The lamb skewers are amazing! 👍",
+        "comment2Content": "Great prices and even better food.",
+        "commentPlaceholder": "Write a comment"
+      },
+      "cta": {
+        "title": "Find your taste of home<br></br>today",
+        "subtitle": "Help international students complete the map together.",
+        "button": "Start CraveMap"
+      }
     }
 }

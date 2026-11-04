@@ -201,5 +201,101 @@
     "countryLabel": "국가",
     "logoutBtn": "로그아웃",
     "unknown": "알 수 없음"
+    },
+    "about": {
+      "hero": {
+        "badge": "외국인 유학생을 위한 음식 지도",
+        "title": "고향의 맛을<br></br><accent>지도에서</accent> 찾아보세요",
+        "subtitle": "낯선 타지에서 그리운 그 맛,<br></br>유학생들이 직접 만드는 음식 지도.",
+        "ctaPrimary": "지금 시작하기",
+        "ctaSecondary": "기능 살펴보기"
+      },
+      "problem": {
+        "eyebrow": "PROBLEM",
+        "title": "낯선 땅에서 고향의 맛이 그리울 때",
+        "items": {
+          "where": {
+            "title": "어디서 먹을 수 있는지 몰라요",
+            "desc": "본국 음식을 파는 곳을 찾아 헤매지만, 흩어진 정보만으로는 알기 어려워요."
+          },
+          "sameCountry": {
+            "title": "같은 나라 가게를 찾기 어려워요",
+            "desc": "같은 나라 출신이 운영하는, 진짜 고향의 맛을 내는 가게가 어디 있는지 모르겠어요."
+          },
+          "alone": {
+            "title": "혼자 찾아다니기 힘들어요",
+            "desc": "믿을 만한 정보 없이 혼자 발품 팔며 찾아다니는 건 너무 지쳐요."
+          }
+        }
+      },
+      "solution": {
+        "eyebrow": "SOLUTION",
+        "title": "같은 유학생끼리 함께 만드는<br></br><accent>고향의 맛 지도</accent>",
+        "subtitle": "본국의 맛을 느낄 수 있는 음식점, 같은 국적의 사람이 운영하는 가게,<br></br>고향의 그리움을 유학생들끼리 서로 공유해요.",
+        "items": {
+          "discover": {
+            "title": "본국 음식점 발견",
+            "desc": "본국의 맛을 그대로 느낄 수 있는 음식점을 지도에서 바로 찾아요."
+          },
+          "sameNationality": {
+            "title": "같은 국적 운영 가게",
+            "desc": "같은 나라 사람이 운영하는 가게를 국적 필터로 손쉽게 찾아요."
+          },
+          "share": {
+            "title": "유학생끼리 정보 공유",
+            "desc": "고향의 그리움을 아는 유학생들끼리 맛집과 후기를 함께 나눠요."
+          }
+        }
+      },
+      "features": {
+        "eyebrow": "FEATURES",
+        "title": "주요 기능",
+        "items": {
+          "multilingual": {
+            "title": "다국어 지원",
+            "desc": "한국어·영어·중국어·베트남어·일본어를 지원해요.",
+            "descLine1": "한국어·영어·중국어·베트남어·일본어를",
+            "descLine2": "지원해요."
+          },
+          "map": {
+            "title": "지도 기반 탐색",
+            "desc": "나라별·카테고리별 필터로 원하는 가게를 지도에서 바로 찾을 수 있어요.",
+            "descLine1": "나라별·카테고리별 필터로 원하는 가게를",
+            "descLine2": "바로 찾을 수 있어요."
+          },
+          "report": {
+            "title": "직접 제보하기",
+            "desc": "내가 발견한 맛집을 다른 유학생들과 함께 공유해요.",
+            "descLine1": "내가 발견한 맛집을 다른 유학생들과",
+            "descLine2": "함께 공유해요."
+          },
+          "comments": {
+            "title": "커뮤니티 댓글",
+            "desc": "가게에 대한 솔직한 후기를 남기고 이웃들과 소통해요.",
+            "descLine1": "가게에 대한 솔직한 후기를 남기고",
+            "descLine2": "이웃들과 소통해요."
+          }
+        }
+      },
+      "mockup": {
+        "filterAll": "전체",
+        "countryCN": "중국",
+        "countryVN": "베트남",
+        "countryJP": "일본",
+        "categoryRestaurant": "식당",
+        "storeName": "베이징 양러우",
+        "storeAddress": "서울 영등포구 대림로 123",
+        "commentCount": "댓글 {count}",
+        "comment1Initial": "민",
+        "comment1Author": "민수",
+        "comment1Content": "양고기 꼬치 진짜 맛있어요! 👍",
+        "comment2Content": "가격도 합리적이고 최고예요.",
+        "commentPlaceholder": "댓글을 입력하세요"
+      },
+      "cta": {
+        "title": "지금 바로 고향의 맛을<br></br>찾아보세요",
+        "subtitle": "유학생들과 함께 지도를 완성시켜보세요.",
+        "button": "CraveMap 시작하기"
+      }
     }
 }

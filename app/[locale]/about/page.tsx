@@ -1,23 +1,27 @@
 import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
+import LanguageSwitcher from '../../../components/layout/LanguageSwitcher'
 
 const problems = [
-  { icon: '🔍', title: '어디서 먹을 수 있는지 몰라요', desc: '본국 음식을 파는 곳을 찾아 헤매지만, 흩어진 정보만으로는 알기 어려워요.' },
-  { icon: '🏪', title: '같은 나라 가게를 찾기 어려워요', desc: '같은 나라 출신이 운영하는, 진짜 고향의 맛을 내는 가게가 어디 있는지 모르겠어요.' },
-  { icon: '🧭', title: '혼자 찾아다니기 힘들어요', desc: '믿을 만한 정보 없이 혼자 발품 팔며 찾아다니는 건 너무 지쳐요.' },
-]
+  { key: 'where', icon: '🔍' },
+  { key: 'sameCountry', icon: '🏪' },
+  { key: 'alone', icon: '🧭' },
+] as const
 
 const solutions = [
-  { icon: '🍜', title: '본국 음식점 발견', desc: '본국의 맛을 그대로 느낄 수 있는 음식점을 지도에서 바로 찾아요.' },
-  { icon: '🏠', title: '같은 국적 운영 가게', desc: '같은 나라 사람이 운영하는 가게를 국적 필터로 손쉽게 찾아요.' },
-  { icon: '🤝', title: '유학생끼리 정보 공유', desc: '고향의 그리움을 아는 유학생들끼리 맛집과 후기를 함께 나눠요.' },
-]
+  { key: 'discover', icon: '🍜' },
+  { key: 'sameNationality', icon: '🏠' },
+  { key: 'share', icon: '🤝' },
+] as const
 
 const mobileFeatures = [
-  { icon: '🌏', title: '다국어 지원', desc: '한국어·영어·중국어·베트남어·일본어를 지원해요.' },
-  { icon: '🗺️', title: '지도 기반 탐색', desc: '나라별·카테고리별 필터로 원하는 가게를 지도에서 바로 찾을 수 있어요.' },
-  { icon: '📍', title: '직접 제보하기', desc: '내가 발견한 맛집을 다른 유학생들과 함께 공유해요.' },
-  { icon: '💬', title: '커뮤니티 댓글', desc: '가게에 대한 솔직한 후기를 남기고 이웃들과 소통해요.' },
-]
+  { key: 'multilingual', icon: '🌏' },
+  { key: 'map', icon: '🗺️' },
+  { key: 'report', icon: '📍' },
+  { key: 'comments', icon: '💬' },
+] as const
+
+const br = () => <br />
 
 export default async function AboutPage({
   params,
@@ -26,18 +30,20 @@ export default async function AboutPage({
 }) {
   const { locale } = await params
   const homeHref = `/${locale}`
+  const t = await getTranslations({ locale, namespace: 'about' })
 
   return (
     <div className="w-full overflow-x-hidden bg-white">
       {/* NAV */}
       <div className="sticky top-0 z-50 border-b border-cm-divider bg-white/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-[1120px] items-center justify-between px-5 py-3.5 sm:px-10">
-          <div className="flex items-center gap-2">
+          <div className="flex min-w-0 items-center gap-2">
             <div className="flex h-[26px] w-[26px] items-center justify-center rounded-[50%_50%_50%_3px] bg-primary">
               <div className="h-[9px] w-[9px] rounded-full bg-white" />
             </div>
             <span className="text-xl font-extrabold tracking-tight text-primary">CraveMap</span>
           </div>
+          <LanguageSwitcher />
         </div>
       </div>
 
@@ -45,30 +51,29 @@ export default async function AboutPage({
       <div className="relative overflow-hidden bg-gradient-to-b from-[#FFF3EC] via-[#FFF9F5] to-white">
         <div className="mx-auto flex max-w-[820px] flex-col items-center px-5 py-16 text-center sm:px-10 sm:py-24 md:py-28">
           <div className="mb-5 inline-flex items-center gap-1.5 rounded-full bg-primary-light px-3.5 py-1.5 text-[13px] font-bold text-primary">
-            외국인 유학생을 위한 음식 지도
+            {t('hero.badge')}
           </div>
           <h1 className="mb-5 text-[32px] font-extrabold leading-[1.22] tracking-tight sm:text-5xl md:text-[56px]">
-            고향의 맛을
-            <br />
-            <span className="text-primary">지도에서</span> 찾아보세요
+            {t.rich('hero.title', {
+              br,
+              accent: (chunks) => <span className="text-primary">{chunks}</span>,
+            })}
           </h1>
           <p className="mb-8 text-base leading-relaxed text-[#6b5f5d] sm:text-lg md:text-[19px]">
-            낯선 타지에서 그리운 그 맛,
-            <br />
-            유학생들이 직접 만드는 음식 지도.
+            {t.rich('hero.subtitle', { br })}
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
               href={homeHref}
               className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-4 text-base font-bold text-white shadow-[0_10px_24px_-8px_rgba(232,52,42,0.5)]"
             >
-              지금 시작하기 <span className="text-lg">→</span>
+              {t('hero.ctaPrimary')} <span className="text-lg">→</span>
             </Link>
             <a
               href="#features"
               className="inline-flex items-center rounded-full border border-cm-border bg-white px-6 py-4 text-base font-semibold text-cm-text"
             >
-              기능 살펴보기
+              {t('hero.ctaSecondary')}
             </a>
           </div>
         </div>
@@ -77,22 +82,22 @@ export default async function AboutPage({
       {/* PROBLEM */}
       <div className="mx-auto max-w-[1120px] px-5 py-14 sm:px-10 sm:py-20 md:py-24">
         <div className="mb-9 text-center sm:mb-14">
-          <div className="mb-3 text-[15px] font-bold text-primary">PROBLEM</div>
+          <div className="mb-3 text-[15px] font-bold text-primary">{t('problem.eyebrow')}</div>
           <h2 className="text-[26px] font-extrabold leading-tight tracking-tight sm:text-4xl">
-            낯선 땅에서 고향의 맛이 그리울 때
+            {t('problem.title')}
           </h2>
         </div>
         <div className="flex flex-wrap gap-4 sm:gap-6">
           {problems.map((p) => (
             <div
-              key={p.title}
+              key={p.key}
               className="min-w-[260px] flex-1 basis-[280px] rounded-[20px] border border-[#EEE] bg-white p-7 shadow-[0_8px_26px_-18px_rgba(0,0,0,0.2)]"
             >
               <div className="mb-5 flex h-[52px] w-[52px] items-center justify-center rounded-2xl bg-primary-light text-2xl">
                 {p.icon}
               </div>
-              <div className="mb-2 text-lg font-bold tracking-tight">{p.title}</div>
-              <div className="text-[15px] leading-relaxed text-cm-muted">{p.desc}</div>
+              <div className="mb-2 text-lg font-bold tracking-tight">{t(`problem.items.${p.key}.title`)}</div>
+              <div className="text-[15px] leading-relaxed text-cm-muted">{t(`problem.items.${p.key}.desc`)}</div>
             </div>
           ))}
         </div>
@@ -102,27 +107,26 @@ export default async function AboutPage({
       <div className="bg-gradient-to-br from-[#2E1A16] to-[#3B211B] text-white">
         <div className="mx-auto max-w-[1120px] px-5 py-14 sm:px-10 sm:py-20 md:py-24">
           <div className="mx-auto mb-10 max-w-[720px] text-center sm:mb-14">
-            <div className="mb-3.5 text-[15px] font-bold text-[#FF6A61]">SOLUTION</div>
+            <div className="mb-3.5 text-[15px] font-bold text-[#FF6A61]">{t('solution.eyebrow')}</div>
             <h2 className="mb-5 text-[26px] font-extrabold leading-snug tracking-tight sm:text-4xl">
-              같은 유학생끼리 함께 만드는
-              <br />
-              <span className="text-[#FF6A61]">고향의 맛 지도</span>
+              {t.rich('solution.title', {
+                br,
+                accent: (chunks) => <span className="text-[#FF6A61]">{chunks}</span>,
+              })}
             </h2>
             <p className="text-[15px] leading-relaxed text-[#B9B9B9] sm:text-lg">
-              본국의 맛을 느낄 수 있는 음식점, 같은 국적의 사람이 운영하는 가게,
-              <br />
-              고향의 그리움을 유학생들끼리 서로 공유해요.
+              {t.rich('solution.subtitle', { br })}
             </p>
           </div>
           <div className="flex flex-wrap gap-4 sm:gap-6">
             {solutions.map((s) => (
               <div
-                key={s.title}
+                key={s.key}
                 className="min-w-[240px] flex-1 basis-[260px] rounded-[20px] border border-white/10 bg-white/5 p-6"
               >
                 <div className="mb-4 text-3xl">{s.icon}</div>
-                <div className="mb-2 text-lg font-bold tracking-tight">{s.title}</div>
-                <div className="text-sm leading-relaxed text-[#C9B6AF]">{s.desc}</div>
+                <div className="mb-2 text-lg font-bold tracking-tight">{t(`solution.items.${s.key}.title`)}</div>
+                <div className="text-sm leading-relaxed text-[#C9B6AF]">{t(`solution.items.${s.key}.desc`)}</div>
               </div>
             ))}
           </div>
@@ -132,8 +136,8 @@ export default async function AboutPage({
       {/* FEATURES */}
       <div id="features" className="mx-auto max-w-[1120px] px-5 py-14 sm:px-10 sm:py-20 md:py-24">
         <div className="mb-9 text-center sm:mb-14">
-          <div className="mb-3 text-[15px] font-bold text-primary">FEATURES</div>
-          <h2 className="text-[26px] font-extrabold tracking-tight sm:text-4xl">주요 기능</h2>
+          <div className="mb-3 text-[15px] font-bold text-primary">{t('features.eyebrow')}</div>
+          <h2 className="text-[26px] font-extrabold tracking-tight sm:text-4xl">{t('features.title')}</h2>
         </div>
 
         {/* Desktop: phone mockup illustrations */}
@@ -212,19 +216,19 @@ export default async function AboutPage({
               />
               <rect x="88" y="110" width="42" height="26" rx="13" fill="#E8342A" />
               <text x="109" y="127" fontSize="12" fontWeight="700" fill="#fff" textAnchor="middle">
-                전체
+                {t('mockup.filterAll')}
               </text>
               <rect x="136" y="110" width="62" height="26" rx="13" fill="#fff" stroke="#E5E5E5" />
               <text x="167" y="127" fontSize="11.5" fontWeight="600" fill="#555" textAnchor="middle">
-                CN 중국
+                CN {t('mockup.countryCN')}
               </text>
               <rect x="204" y="110" width="74" height="26" rx="13" fill="#fff" stroke="#E5E5E5" />
               <text x="241" y="127" fontSize="11.5" fontWeight="600" fill="#555" textAnchor="middle">
-                VN 베트남
+                VN {t('mockup.countryVN')}
               </text>
               <rect x="284" y="110" width="62" height="26" rx="13" fill="#fff" stroke="#E5E5E5" />
               <text x="315" y="127" fontSize="11.5" fontWeight="600" fill="#555" textAnchor="middle">
-                JP 일본
+                JP {t('mockup.countryJP')}
               </text>
 
               <path d="M556 108 C 470 92 410 90 350 90" fill="none" stroke="#E8342A" strokeWidth="2.4" strokeLinecap="round" markerEnd="url(#ah1)" />
@@ -233,21 +237,21 @@ export default async function AboutPage({
 
               <g>
                 <rect x="556" y="60" width="456" height="104" rx="18" fill="#fff" stroke="#F0EAE8" filter="url(#cardSh)" />
-                <text x="584" y="102" fontSize="24" fontWeight="800" fill="#1A1A1A">🌏  다국어 지원</text>
-                <text x="584" y="132" fontSize="17" fill="#6b5f5d">한국어·영어·중국어·베트남어·일본어를</text>
-                <text x="584" y="156" fontSize="17" fill="#6b5f5d">지원해요.</text>
+                <text x="584" y="102" fontSize="24" fontWeight="800" fill="#1A1A1A">{`🌏  ${t('features.items.multilingual.title')}`}</text>
+                <text x="584" y="132" fontSize="17" fill="#6b5f5d">{t('features.items.multilingual.descLine1')}</text>
+                <text x="584" y="156" fontSize="17" fill="#6b5f5d">{t('features.items.multilingual.descLine2')}</text>
               </g>
               <g>
                 <rect x="556" y="252" width="456" height="104" rx="18" fill="#fff" stroke="#F0EAE8" filter="url(#cardSh)" />
-                <text x="584" y="294" fontSize="24" fontWeight="800" fill="#1A1A1A">🗺  지도 기반 탐색</text>
-                <text x="584" y="324" fontSize="17" fill="#6b5f5d">나라별·카테고리별 필터로 원하는 가게를</text>
-                <text x="584" y="348" fontSize="17" fill="#6b5f5d">바로 찾을 수 있어요.</text>
+                <text x="584" y="294" fontSize="24" fontWeight="800" fill="#1A1A1A">{`🗺  ${t('features.items.map.title')}`}</text>
+                <text x="584" y="324" fontSize="17" fill="#6b5f5d">{t('features.items.map.descLine1')}</text>
+                <text x="584" y="348" fontSize="17" fill="#6b5f5d">{t('features.items.map.descLine2')}</text>
               </g>
               <g>
                 <rect x="556" y="440" width="456" height="104" rx="18" fill="#fff" stroke="#F0EAE8" filter="url(#cardSh)" />
-                <text x="584" y="482" fontSize="24" fontWeight="800" fill="#1A1A1A">📍  직접 제보하기</text>
-                <text x="584" y="512" fontSize="17" fill="#6b5f5d">내가 발견한 맛집을 다른 유학생들과</text>
-                <text x="584" y="536" fontSize="17" fill="#6b5f5d">함께 공유해요.</text>
+                <text x="584" y="482" fontSize="24" fontWeight="800" fill="#1A1A1A">{`📍  ${t('features.items.report.title')}`}</text>
+                <text x="584" y="512" fontSize="17" fill="#6b5f5d">{t('features.items.report.descLine1')}</text>
+                <text x="584" y="536" fontSize="17" fill="#6b5f5d">{t('features.items.report.descLine2')}</text>
               </g>
             </svg>
           </div>
@@ -277,25 +281,25 @@ export default async function AboutPage({
                 <rect x="686" y="300" width="280" height="300" rx="22" fill="#ffffff" />
                 <rect x="805" y="313" width="42" height="5" rx="2.5" fill="#D8D8D8" />
                 <rect x="706" y="330" width="60" height="24" rx="12" fill="#FDE8E7" />
-                <text x="736" y="346" fontSize="11.5" fontWeight="700" fill="#E8342A" textAnchor="middle">🇨🇳 중국</text>
+                <text x="736" y="346" fontSize="11.5" fontWeight="700" fill="#E8342A" textAnchor="middle">{`🇨🇳 ${t('mockup.countryCN')}`}</text>
                 <rect x="772" y="330" width="54" height="24" rx="12" fill="#F2F2F2" />
-                <text x="799" y="346" fontSize="11.5" fontWeight="700" fill="#555" textAnchor="middle">🍜 식당</text>
-                <text x="706" y="382" fontSize="19" fontWeight="800" fill="#1A1A1A">베이징 양러우</text>
-                <text x="706" y="405" fontSize="12" fill="#888">📍 서울 영등포구 대림로 123</text>
+                <text x="799" y="346" fontSize="11.5" fontWeight="700" fill="#555" textAnchor="middle">{`🍜 ${t('mockup.categoryRestaurant')}`}</text>
+                <text x="706" y="382" fontSize="19" fontWeight="800" fill="#1A1A1A">{t('mockup.storeName')}</text>
+                <text x="706" y="405" fontSize="12" fill="#888">{`📍 ${t('mockup.storeAddress')}`}</text>
                 <line x1="706" y1="420" x2="946" y2="420" stroke="#F0F0F0" strokeWidth="1.5" />
-                <text x="706" y="442" fontSize="12.5" fontWeight="700" fill="#1A1A1A">댓글 2</text>
+                <text x="706" y="442" fontSize="12.5" fontWeight="700" fill="#1A1A1A">{t('mockup.commentCount', { count: 2 })}</text>
                 <circle cx="719" cy="470" r="13" fill="#EDEDED" />
-                <text x="719" y="474" fontSize="11" fontWeight="700" fill="#888" textAnchor="middle">민</text>
-                <text x="741" y="465" fontSize="12" fontWeight="700" fill="#1A1A1A">민수</text>
+                <text x="719" y="474" fontSize="11" fontWeight="700" fill="#888" textAnchor="middle">{t('mockup.comment1Initial')}</text>
+                <text x="741" y="465" fontSize="12" fontWeight="700" fill="#1A1A1A">{t('mockup.comment1Author')}</text>
                 <text x="946" y="465" fontSize="10.5" fill="#bbb" textAnchor="end">06.21</text>
-                <text x="741" y="484" fontSize="12" fill="#333">양고기 꼬치 진짜 맛있어요! 👍</text>
+                <text x="741" y="484" fontSize="12" fill="#333">{t('mockup.comment1Content')}</text>
                 <circle cx="719" cy="514" r="13" fill="#EDEDED" />
                 <text x="719" y="518" fontSize="11" fontWeight="700" fill="#888" textAnchor="middle">A</text>
                 <text x="741" y="509" fontSize="12" fontWeight="700" fill="#1A1A1A">Anh</text>
                 <text x="946" y="509" fontSize="10.5" fill="#bbb" textAnchor="end">06.20</text>
-                <text x="741" y="528" fontSize="12" fill="#333">가격도 합리적이고 최고예요.</text>
+                <text x="741" y="528" fontSize="12" fill="#333">{t('mockup.comment2Content')}</text>
                 <rect x="700" y="548" width="212" height="34" rx="17" fill="#fff" stroke="#E5E5E5" strokeWidth="1.4" />
-                <text x="714" y="569" fontSize="12" fill="#aaa">댓글을 입력하세요</text>
+                <text x="714" y="569" fontSize="12" fill="#aaa">{t('mockup.commentPlaceholder')}</text>
                 <circle cx="936" cy="565" r="16" fill="#E8342A" />
                 <path d="M929 565 L943 559 L938 565 L943 571 Z" fill="#fff" />
               </g>
@@ -305,9 +309,9 @@ export default async function AboutPage({
 
               <g>
                 <rect x="30" y="250" width="456" height="112" rx="18" fill="#fff" stroke="#F0EAE8" filter="url(#cardSh2)" />
-                <text x="58" y="294" fontSize="24" fontWeight="800" fill="#1A1A1A">💬  커뮤니티 댓글</text>
-                <text x="58" y="324" fontSize="17" fill="#6b5f5d">가게에 대한 솔직한 후기를 남기고</text>
-                <text x="58" y="348" fontSize="17" fill="#6b5f5d">이웃들과 소통해요.</text>
+                <text x="58" y="294" fontSize="24" fontWeight="800" fill="#1A1A1A">{`💬  ${t('features.items.comments.title')}`}</text>
+                <text x="58" y="324" fontSize="17" fill="#6b5f5d">{t('features.items.comments.descLine1')}</text>
+                <text x="58" y="348" fontSize="17" fill="#6b5f5d">{t('features.items.comments.descLine2')}</text>
               </g>
             </svg>
           </div>
@@ -317,13 +321,13 @@ export default async function AboutPage({
         <div className="flex flex-col gap-4 md:hidden">
           {mobileFeatures.map((f) => (
             <div
-              key={f.title}
+              key={f.key}
               className="flex items-start gap-4 rounded-2xl border border-[#EEE] bg-white p-5 shadow-[0_8px_26px_-18px_rgba(0,0,0,0.2)]"
             >
               <div className="text-2xl">{f.icon}</div>
               <div>
-                <div className="mb-1 text-base font-bold">{f.title}</div>
-                <div className="text-sm leading-relaxed text-cm-muted">{f.desc}</div>
+                <div className="mb-1 text-base font-bold">{t(`features.items.${f.key}.title`)}</div>
+                <div className="text-sm leading-relaxed text-cm-muted">{t(`features.items.${f.key}.desc`)}</div>
               </div>
             </div>
           ))}
@@ -337,16 +341,14 @@ export default async function AboutPage({
           <div className="absolute -bottom-20 -left-12 h-64 w-64 rounded-full bg-white/[0.08]" />
           <div className="relative">
             <h2 className="mb-4 text-[26px] font-extrabold leading-tight tracking-tight text-white sm:text-4xl md:text-[42px]">
-              지금 바로 고향의 맛을
-              <br />
-              찾아보세요
+              {t.rich('cta.title', { br })}
             </h2>
-            <p className="mb-8 text-[15px] text-white/90 sm:text-lg">유학생들과 함께 지도를 완성시켜보세요.</p>
+            <p className="mb-8 text-[15px] text-white/90 sm:text-lg">{t('cta.subtitle')}</p>
             <Link
               href={homeHref}
               className="inline-flex items-center gap-2 rounded-full bg-white px-9 py-[17px] text-[17px] font-extrabold text-primary shadow-[0_12px_30px_-10px_rgba(0,0,0,0.3)]"
             >
-              CraveMap 시작하기 <span className="text-[19px]">→</span>
+              {t('cta.button')} <span className="text-[19px]">→</span>
             </Link>
           </div>
         </div>
