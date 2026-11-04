@@ -75,7 +75,14 @@ export default function SignupPage() {
     setLoading(true)
 
     const submittedEmail = email.trim()
-    const { data, error } = await supabase.auth.signUp({ email: submittedEmail, password })
+    // nickname/country_code는 raw_user_meta_data로 전달 → handle_new_user 트리거가 public.users에 저장
+    const { data, error } = await supabase.auth.signUp({
+      email: submittedEmail,
+      password,
+      options: {
+        data: { nickname: nickname.trim(), country_code: countryCode },
+      },
+    })
 
     if (error) {
       if (error.message.toLowerCase().includes('already registered')) {
@@ -92,13 +99,6 @@ export default function SignupPage() {
       setDuplicateEmail(submittedEmail)
       setLoading(false)
       return
-    }
-
-    if (data.user) {
-      await supabase
-        .from('users')
-        .update({ nickname: nickname.trim(), country_code: countryCode })
-        .eq('id', data.user.id)
     }
 
     setLoading(false)

@@ -73,10 +73,19 @@ export default function OnboardingPage() {
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) { router.replace(`/${locale}/login`); return }
 
+    // public.users 행이 없을 수도 있으므로 upsert (RLS: users_insert_own / 본인 update)
     const { error } = await supabase
       .from('users')
-      .update({ nickname: nickname.trim(), country_code: countryCode })
-      .eq('id', user.id)
+      .upsert(
+        {
+          id: user.id,
+          email: user.email,
+          provider: user.app_metadata?.provider ?? 'email',
+          nickname: nickname.trim(),
+          country_code: countryCode,
+        },
+        { onConflict: 'id' }
+      )
 
     if (error) {
       setToast({ message: t('error.failed'), type: 'error' })
