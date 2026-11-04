@@ -59,6 +59,7 @@ export default function ReportPage() {
     supabase
       .from('countries')
       .select('code, flag_emoji, name_i18n')
+      .order('sort_order', { ascending: true })
       .then(({ data }) => {
         if (data) setCountries(data as Country[])
       })

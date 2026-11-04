@@ -43,7 +43,7 @@ export default function SignupPage() {
     supabase
       .from('countries')
       .select('code, flag_emoji, name_i18n')
-      .order('code')
+      .order('sort_order', { ascending: true })
       .then(({ data }) => { if (data) setCountries(data) })
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
