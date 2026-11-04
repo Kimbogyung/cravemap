@@ -16,7 +16,8 @@
         "delete": "Xóa",
         "save": "Lưu",
         "login": "Đăng nhập"
-      }
+      },
+      "unknownUser": "Người dùng không xác định"
     },
     "map": {
       "loading": "Đang tải thông tin cửa hàng...",

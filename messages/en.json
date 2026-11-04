@@ -16,7 +16,8 @@
         "delete": "Delete",
         "save": "Save",
         "login": "Login"
-      }
+      },
+      "unknownUser": "Unknown user"
     },
     "map": {
       "loading": "Loading stores...",

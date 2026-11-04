@@ -16,7 +16,8 @@
         "delete": "删除",
         "save": "保存",
         "login": "去登录"
-      }
+      },
+      "unknownUser": "未知用户"
     },
     "map": {
       "loading": "正在加载店铺信息...",

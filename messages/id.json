@@ -16,7 +16,8 @@
         "delete": "Hapus",
         "save": "Simpan",
         "login": "Masuk"
-      }
+      },
+      "unknownUser": "Pengguna tidak dikenal"
     },
     "map": {
       "loading": "Memuat data toko...",

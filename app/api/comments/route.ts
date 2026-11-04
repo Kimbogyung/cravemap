@@ -13,7 +13,7 @@ export async function GET(req: NextRequest) {
   const supabase = await createServerSupabaseClient()
   const { data, error } = await supabase
     .from('comments')
-    .select('*, users(nickname, email, country_code, countries(flag_emoji, name_i18n))')
+    .select('*, users(nickname, country_code, countries(flag_emoji, name_i18n))')
     .eq('store_id', storeId)
     .order('created_at', { ascending: false })
 

@@ -36,14 +36,12 @@ interface StoreDetail {
   } | null
   store_images: StoreImage[]
   users: {
-    email: string | null
     nickname: string | null
   } | null
 }
 
 interface CommentUser {
   nickname: string | null
-  email: string | null
   country_code: string | null
   countries: {
     flag_emoji: string
@@ -177,8 +175,7 @@ export default function StoreBottomSheet({ storeId, onClose, isPanel = false }: 
   }
 
   function getReporterName() {
-    if (!store?.users) return '—'
-    return store.users.nickname ?? store.users.email?.split('@')[0] ?? '—'
+    return store?.users?.nickname ?? tCommon('unknownUser')
   }
 
   function getKakaoNavUrl() {
@@ -187,7 +184,7 @@ export default function StoreBottomSheet({ storeId, onClose, isPanel = false }: 
   }
 
   function getCommentAuthor(c: Comment) {
-    return c.users?.nickname ?? c.users?.email?.split('@')[0] ?? '—'
+    return c.users?.nickname ?? tCommon('unknownUser')
   }
 
   // ── Comment submit ──────────────────────────────────────────────────────────

@@ -34,7 +34,7 @@ export type Country = {
     updated_at: string
     countries?: Country
     store_images?: StoreImage[]
-    users?: Pick<User, 'email' | 'nickname'>
+    users?: Pick<User, 'nickname'>
   }
   
   export type StoreImage = {
@@ -53,7 +53,7 @@ export type Country = {
     content: string
     created_at: string
     updated_at: string
-    users?: Pick<User, 'nickname' | 'email' | 'country_code'> & {
+    users?: Pick<User, 'nickname' | 'country_code'> & {
       countries?: Pick<Country, 'flag_emoji' | 'name_i18n'>
     }
   }
