@@ -4,6 +4,7 @@ export type Country = {
     flag_emoji: string
     name_i18n: Record<string, string>
     marker_color: string | null
+    marker_dot_color: string | null
     sort_order: number
     created_at: string
   }
