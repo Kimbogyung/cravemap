@@ -30,8 +30,28 @@ const MARKER_COLORS: Record<string, string> = {
   DEFAULT: '#7F8C8D',
 }
 
-function getMarkerColor(code: string) {
-  return MARKER_COLORS[code] ?? MARKER_COLORS.DEFAULT
+// 마커 핀 모양 (바깥 회색 테두리용/본체용으로 두 번 그림)
+const PIN_PATH = 'M14 2C7.4 2 2 7.4 2 14C2 20 14 35 14 35C14 35 26 20 26 14C26 7.4 20.6 2 14 2Z'
+
+const DEFAULT_DOT_COLOR = '#FFFFFF'
+const HEX_COLOR_RE = /^#[0-9A-Fa-f]{6}$/
+
+function isWhite(color: string) {
+  return color.toUpperCase() === '#FFFFFF'
+}
+
+// 마커 몸통/안쪽 동그라미 색: DB(countries) 값 우선, 없거나 형식이 잘못되면 기본값
+function getMarkerColors(store: MapStore) {
+  const code = store.countries?.code ?? store.country_code
+  const dbFill = store.countries?.marker_color
+  const dbDot = store.countries?.marker_dot_color
+  const fill = dbFill && HEX_COLOR_RE.test(dbFill)
+    ? dbFill
+    : MARKER_COLORS[code] ?? MARKER_COLORS.DEFAULT
+  let dot = dbDot && HEX_COLOR_RE.test(dbDot) ? dbDot : DEFAULT_DOT_COLOR
+  // 흰 몸통 + 흰 동그라미면 동그라미가 사라지므로 회색으로 대체
+  if (isWhite(fill) && isWhite(dot)) dot = MARKER_COLORS.DEFAULT
+  return { fill, dot }
 }
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -181,7 +201,7 @@ export default function MapScreen() {
     supabase
       .from('stores')
       .select(
-        'id, name, latitude, longitude, category, country_code, countries(code, flag_emoji, name_i18n)'
+        'id, name, latitude, longitude, category, country_code, countries(code, flag_emoji, name_i18n, marker_color, marker_dot_color)'
       )
       .eq('is_approved', true)
       .then(({ data, error }) => {
@@ -217,11 +237,11 @@ export default function MapScreen() {
     storeMarkersRef.current.clear()
 
     stores.forEach((store) => {
-      const color = getMarkerColor(store.countries?.code ?? store.country_code)
+      const { fill, dot } = getMarkerColors(store)
 
       const el = document.createElement('div')
       el.style.cssText = 'cursor:pointer;transform:translate(-50%,-100%);'
-      el.innerHTML = `<svg width="28" height="36" viewBox="0 0 28 36" fill="none" style="overflow:visible;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.22));"><path d="M14 2C7.4 2 2 7.4 2 14C2 20 14 35 14 35C14 35 26 20 26 14C26 7.4 20.6 2 14 2Z" fill="${color}" stroke="white" stroke-width="2.5"/><circle cx="14" cy="13" r="5" fill="white"/></svg>`
+      el.innerHTML = `<svg width="28" height="36" viewBox="0 0 28 36" fill="none" style="overflow:visible;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.28));"><path d="${PIN_PATH}" stroke="rgba(0,0,0,0.28)" stroke-width="4"/><path d="${PIN_PATH}" fill="${fill}" stroke="white" stroke-width="2.5"/><circle cx="14" cy="13" r="5" fill="${dot}"/></svg>`
       el.addEventListener('click', () => {
         mapRef.current?.panTo(
           new window.kakao.maps.LatLng(store.latitude, store.longitude)
