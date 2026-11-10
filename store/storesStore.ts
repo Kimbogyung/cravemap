@@ -11,6 +11,8 @@ export interface StoreMarker {
     code: string
     flag_emoji: string
     name_i18n: Record<string, string>
+    marker_color?: string | null
+    marker_dot_color?: string | null
   } | null
 }
 

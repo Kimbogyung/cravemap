@@ -16,6 +16,8 @@ interface Country {
   code: string
   flag_emoji: string
   name_i18n: Record<string, string>
+  marker_color: string | null
+  marker_dot_color: string | null
 }
 
 interface LocationValue {
@@ -58,7 +60,7 @@ export default function ReportPage() {
     const supabase = createClient()
     supabase
       .from('countries')
-      .select('code, flag_emoji, name_i18n')
+      .select('code, flag_emoji, name_i18n, marker_color, marker_dot_color')
       .order('sort_order', { ascending: true })
       .then(({ data }) => {
         if (data) setCountries(data as Country[])

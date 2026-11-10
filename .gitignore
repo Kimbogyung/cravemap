@@ -42,3 +42,6 @@ next-env.d.ts
 
 settings.json
 .claude/settings.json
+# design mockups (local only)
+CraveMap.html
+CraveMap_Landing.html
