@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createServerSupabaseClient } from '../../../lib/supabase-server'
+import { boundingBox, findDuplicateStore } from '../../../lib/duplicateStore'
 
 const ALLOWED_TYPES = new Set(['image/jpeg', 'image/jpg', 'image/png', 'image/webp'])
 const MAX_SIZE = 1 * 1024 * 1024 // 1 MB
@@ -60,6 +61,38 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       )
     }
+  }
+
+  // ②-1 중복 검사 (이미지 업로드 전에 수행 → 중복이면 Storage/DB에 아무것도 쓰지 않음)
+  // 반경 50m 주변만 DB에서 가져온 뒤, Haversine 거리 + 이름 유사도로 최종 판정
+  const box = boundingBox(latitude, longitude)
+  const { data: nearbyStores, error: nearbyError } = await supabase
+    .from('stores')
+    .select('id, name, latitude, longitude')
+    .eq('is_approved', true)
+    .gte('latitude', box.minLat)
+    .lte('latitude', box.maxLat)
+    .gte('longitude', box.minLng)
+    .lte('longitude', box.maxLng)
+
+  if (nearbyError) {
+    console.error('[CraveMap] Duplicate check error:', JSON.stringify(nearbyError))
+    return NextResponse.json(
+      { success: false, error: { code: 'INTERNAL_ERROR', message: '제보 등록에 실패했어요.' } },
+      { status: 500 }
+    )
+  }
+
+  const duplicate = findDuplicateStore({ name, latitude, longitude }, nearbyStores ?? [])
+  if (duplicate) {
+    return NextResponse.json(
+      {
+        success: false,
+        error: { code: 'DUPLICATE_STORE', message: '이미 등록된 가게예요.' },
+        duplicate: { id: duplicate.id, name: duplicate.name },
+      },
+      { status: 409 }
+    )
   }
 
   // ③ 이미지 Storage 업로드
