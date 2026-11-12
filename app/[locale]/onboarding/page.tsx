@@ -73,21 +73,17 @@ export default function OnboardingPage() {
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) { router.replace(`/${locale}/login`); return }
 
-    // public.users 행이 없을 수도 있으므로 upsert (RLS: users_insert_own / 본인 update)
-    const { error } = await supabase
+    // public.users 행은 가입 시 트리거로 생성되므로 update만 한다.
+    // email/provider 컬럼은 authenticated 역할 권한이 없어 보내지 않는다 (upsert 시 403).
+    const { data: updated, error } = await supabase
       .from('users')
-      .upsert(
-        {
-          id: user.id,
-          email: user.email,
-          provider: user.app_metadata?.provider ?? 'email',
-          nickname: nickname.trim(),
-          country_code: countryCode,
-        },
-        { onConflict: 'id' }
-      )
+      .update({ nickname: nickname.trim(), country_code: countryCode })
+      .eq('id', user.id)
+      .select('id')
 
-    if (error) {
+    // 반환 행 0개 = 프로필 행이 없음 → 저장 실패로 처리
+    if (error || !updated || updated.length === 0) {
+      if (error) console.error('[CraveMap] Onboarding save error:', JSON.stringify(error))
       setToast({ message: t('error.failed'), type: 'error' })
       setLoading(false)
       return
