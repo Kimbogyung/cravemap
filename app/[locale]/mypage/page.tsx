@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useTranslations, useLocale } from 'next-intl'
 import { useAuthStore } from '../../../store/authStore'
+import { useRequireProfile } from '../../../hooks/useRequireProfile'
 import AppLayout from '../../../components/layout/AppLayout'
 import TopNav from '../../../components/layout/TopNav'
 import Toast from '../../../components/ui/Toast'
@@ -19,6 +20,8 @@ export default function MypagePage() {
   const locale = useLocale()
   const router = useRouter()
   const { user, profile, initialized, signOut } = useAuthStore()
+  // DB(public.users) 기준 온보딩 완료 검사 → 미완료면 /onboarding으로 이동
+  const { ready: profileReady } = useRequireProfile()
 
   const [countryInfo, setCountryInfo] = useState<CountryInfo | null>(null)
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null)
@@ -49,7 +52,7 @@ export default function MypagePage() {
     router.replace(`/${locale}/login`)
   }
 
-  if (!initialized || !user) {
+  if (!initialized || !user || !profileReady) {
     return (
       <AppLayout>
         <TopNav variant="page" title={t('title')} />

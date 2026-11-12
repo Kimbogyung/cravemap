@@ -6,6 +6,7 @@ import { useTranslations, useLocale } from 'next-intl'
 import { createClient } from '../../../lib/supabase'
 import AppLayout from '../../../components/layout/AppLayout'
 import Toast from '../../../components/ui/Toast'
+import { useAuthStore } from '../../../store/authStore'
 
 interface Country {
   code: string
@@ -89,6 +90,8 @@ export default function OnboardingPage() {
       return
     }
 
+    // DB 저장이 확인된 뒤에만 클라이언트 상태 반영
+    useAuthStore.getState().setProfile({ nickname: nickname.trim(), country_code: countryCode })
     router.replace(redirectTo)
   }
 

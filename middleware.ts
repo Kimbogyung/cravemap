@@ -12,8 +12,8 @@ const intlMiddleware = createMiddleware({
 
 // 로그인 필요 라우트
 const authRequired = ['/report', '/mypage']
-// 로그인 + 프로필 완료 필요 라우트
-const profileRequired = ['/report']
+// 로그인 + 프로필 완료 필요 라우트 (기준: DB public.users의 nickname/country_code)
+const profileRequired = ['/report', '/mypage']
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
@@ -48,7 +48,7 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(loginUrl)
     }
 
-    // /report: 프로필 완료 여부 추가 확인
+    // /report, /mypage: 프로필 완료 여부 추가 확인 (DB 조회, 클라이언트 상태는 보지 않음)
     if (needsProfile) {
       const { data: profile } = await supabase
         .from('users')

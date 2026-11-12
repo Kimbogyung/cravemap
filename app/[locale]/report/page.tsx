@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useTranslations, useLocale } from 'next-intl'
 import { createClient } from '../../../lib/supabase'
 import { useAuthStore } from '../../../store/authStore'
+import { useRequireProfile } from '../../../hooks/useRequireProfile'
 import { useStoresStore } from '../../../store/storesStore'
 import AppLayout from '../../../components/layout/AppLayout'
 import TopNav from '../../../components/layout/TopNav'
@@ -34,6 +35,8 @@ export default function ReportPage() {
   const locale = useLocale()
   const router = useRouter()
   const { user, initialized: authInitialized } = useAuthStore()
+  // DB(public.users) 기준 온보딩 완료 검사 → 미완료면 /onboarding으로 이동
+  const { ready: profileReady } = useRequireProfile()
   const { addStore } = useStoresStore()
 
   // Redirect if not logged in (after auth initialized)
@@ -164,7 +167,7 @@ export default function ReportPage() {
     }
   }
 
-  if (!authInitialized || !user) return null
+  if (!authInitialized || !user || !profileReady) return null
 
   return (
     <AppLayout fullWidth>
