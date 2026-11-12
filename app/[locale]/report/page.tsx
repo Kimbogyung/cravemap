@@ -72,8 +72,7 @@ export default function ReportPage() {
     name.trim().length > 0 &&
     !!countryCode &&
     !!category &&
-    !!location &&
-    photos.length > 0
+    !!location
 
   // ── Photo handlers ────────────────────────────────────────────────────────
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -234,7 +233,7 @@ export default function ReportPage() {
             </Field>
 
             {/* 사진 */}
-            <Field label={t('field.photos')} required>
+            <Field label={t('field.photos')}>
               <div className="flex gap-3 flex-wrap">
                 {photos.map((file, i) => (
                   <div

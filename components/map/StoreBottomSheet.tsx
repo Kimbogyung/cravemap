@@ -426,7 +426,7 @@ export default function StoreBottomSheet({ storeId, onClose, isPanel = false }: 
                     ))}
                   </div>
                 ) : (
-                  <PhotoPlaceholder />
+                  <PhotoPlaceholder label={t('noPhotos')} />
                 )}
               </div>
 
@@ -652,14 +652,15 @@ function MetaRow({ label, value }: { label: string; value: string }) {
   )
 }
 
-function PhotoPlaceholder() {
+function PhotoPlaceholder({ label }: { label: string }) {
   return (
-    <div className="flex items-center justify-center w-full h-[72px] rounded-[10px] bg-[#F5F5F5]">
-      <svg width="24" height="24" fill="none" stroke="#CCC" strokeWidth="1.5" viewBox="0 0 24 24">
+    <div className="flex flex-col items-center justify-center gap-1 w-full h-[72px] rounded-[10px] bg-[#F5F5F5]">
+      <svg width="24" height="24" fill="none" stroke="#CCC" strokeWidth="1.5" viewBox="0 0 24 24" aria-hidden="true">
         <rect x="3" y="3" width="18" height="18" rx="3" />
         <circle cx="8.5" cy="8.5" r="1.5" />
         <path d="M21 15l-5-5L5 21" />
       </svg>
+      <span className="text-[12px] text-[#BBBBBB]">{label}</span>
     </div>
   )
 }

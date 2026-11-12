@@ -45,7 +45,8 @@ export async function POST(req: NextRequest) {
     )
   }
 
-  if (images.length === 0 || images.length > 3) {
+  // 사진은 선택 항목 (0~3장)
+  if (images.length > 3) {
     return NextResponse.json(
       { success: false, error: { code: 'INVALID_REQUEST', message: '사진 업로드 조건을 확인해주세요.' } },
       { status: 400 }
@@ -122,6 +123,14 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(
       { success: false, error: { code: 'INTERNAL_ERROR', message: '제보 등록에 실패했어요.' } },
       { status: 500 }
+    )
+  }
+
+  // 사진이 없으면 store_images INSERT 생략
+  if (uploadedPaths.length === 0) {
+    return NextResponse.json(
+      { success: true, data: { ...store, store_images: [] } },
+      { status: 201 }
     )
   }
 
